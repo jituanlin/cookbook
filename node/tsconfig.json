@@ -1,0 +1,30 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": ["types/*"]
+    },
+    "lib": ["esnext"],
+    "target": "esnext",
+    "module": "commonjs",
+    "strict": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "charset": "utf8",
+    "pretty": true,
+    "resolveJsonModule": true,
+    "allowUnreachableCode": false,
+    "strictPropertyInitialization": false,
+    "noFallthroughCasesInSwitch": true,
+    "strictFunctionTypes": false,
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "noEmit": true,
+  },
+  "exclude": [
+    "node_modules*",
+  ]
+}
