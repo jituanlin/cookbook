@@ -4,9 +4,11 @@
     "@types/node": "^12.12.11",
     "@types/ramda": "^0.26.33",
     "fp-ts": "^2.1.1",
+    "gitlab": "^13.0.0",
     "lodash": "^4.17.15",
     "ramda": "^0.26.1",
     "rxjs": "^6.5.3",
+    "simple-git": "^1.129.0",
     "ts-toolbelt": "^4.8.24",
     "typescript": "^3.7.2"
   }

@@ -1,7 +1,39 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "*": ["types/*"] },
+    "lib": ["es2015", "es2017"],
+    "target": "es2017",
     "module": "commonjs",
-    "esModuleInterop": true,
-    "lib": ["es7"]
-  }
+    "strict": false,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "charset": "utf8",
+    "allowJs": false,
+    "pretty": true,
+    "noEmitOnError": false,
+    "noUnusedLocals": false,
+    "noImplicitThis": false,
+    "resolveJsonModule": true,
+    "noUnusedParameters": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "strictPropertyInitialization": false,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "inlineSourceMap": true,
+    "importHelpers": false
+  },
+  "exclude": [
+    "node_modules*",
+    "app/public",
+    "app/views",
+    "test/",
+    "conf",
+    "run",
+    "temp"
+  ]
 }
