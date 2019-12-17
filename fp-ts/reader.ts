@@ -22,5 +22,5 @@ const r2 = fp.reader.of<void,number>(42)
 assert.deepEqual(r2(),42)
 
 // todo: I ask
-const
+
 /* --- */
