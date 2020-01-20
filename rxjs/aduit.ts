@@ -1,11 +1,3 @@
-/**
- * description:
- * 1. auditTime ignore all events during period;
- * 2. after time go pass;
- * 3. then output the last event during that period;
- * 4. then goto step 1;
- * */
-
 import { interval, timer } from "rxjs";
 import { audit, auditTime, timeout } from "rxjs/operators";
 

@@ -2,7 +2,7 @@ import * as fp from 'fp-ts'
 
 /**
  * description:
- * any type is subtype of unknown
+ * unknown is supertype of all types.
  * */
 export type S1 = any extends unknown ? 1 : 0;
 
