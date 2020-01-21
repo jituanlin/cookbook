@@ -1,56 +1,22 @@
-import { merge, of, Subject } from "rxjs";
-import { distinct, filter, map, mapTo, mergeScan, tap } from "rxjs/operators";
+import {merge, ReplaySubject, Subject} from "rxjs";
+import {distinct,tap} from "rxjs/operators";
 
-enum EEventType {
-  Visible,
-  UnVisible
-}
+const ob = new Subject();
 
-interface IEvent {
-  type: EEventType;
-  n: number;
-}
+const ob2 = new Subject()
 
-const visible$ = new Subject<number>();
-const unVisible$ = new Subject<number>();
 
-const AssociateWithType = (type: EEventType) => (n: number) => ({
-  n,
-  type
-});
+// ob.next({i:1,v:1})
 
-const scanToValidLeaveEvent = mergeScan(
-  ({ previous }, current: IEvent) =>
-    of({
-      previous: current,
-      n:
-        previous &&
-        previous.type === EEventType.Visible &&
-        current.type === EEventType.UnVisible
-          ? current.n - previous.n
-          : null
-    }),
-  { previous: null, n: null }
-);
+// ob2.next({i:2,v:2})
 
-const m$ = merge(
-  visible$.pipe(map(AssociateWithType(EEventType.Visible))),
-  unVisible$.pipe(map(AssociateWithType(EEventType.UnVisible)))
-).pipe(
-  tap(console.log),
-  scanToValidLeaveEvent,
-  map(({ n }) => n),
-  filter(n => n !== null)
-);
+// ob2.next({i:3,v:3})
 
-setTimeout(() => unVisible$.next(1), 250);
+const sub =  ob2.pipe(distinct((n:any)=>n.i),tap(console.log))
 
-setTimeout(() => {
-  m$.subscribe(console.log);
-}, 300);
+sub.subscribe(console.log)
 
-setTimeout(() => visible$.next(2), 550);
+sub.subscribe(console.log)
+ob2.next({i:1,v:4})
 
-setTimeout(() => unVisible$.next(3), 600);
 
-setTimeout(() => unVisible$.next(4), 750);
