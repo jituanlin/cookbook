@@ -17,6 +17,7 @@
  * We don't need neither hard code every possibility statically
  * nor maintain a huge inherit tree.
  * Why: flexibility
+ * 一句话描述:
  * */
 
 abstract class Computer {
