@@ -6,4 +6,5 @@
  * How: Builder is a class, separate options setting into various setting step(method) and finally step -- `build`.
  * The client could compose various setting step to set construct options flexibly, then call `build` to get object.
  * When: the processing to  construct object need too much and too complexity options setting.
+ * 一句话表述: 将复杂的实例化类的过程打散成几个(随意?)组合小方法.
  * */
