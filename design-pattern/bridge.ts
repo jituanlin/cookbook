@@ -17,7 +17,14 @@
  * We don't need neither hard code every possibility statically
  * nor maintain a huge inherit tree.
  * Why: flexibility
- * 一句话描述:
+ * 歧义声明:
+ * 桥梁模式的标准定义是抽象和实现分离,我认为这种描述不好:
+ * 这个模式有两个实现步骤:
+ * 1. 将功能分割为抽象(abstraction)和实现(implementor) => 反映了抽象和实现分离
+ * 2. 使用继承分别实现implementor和abstraction => *没有*反映了抽象和实现分离
+ * 3. 在运行时组合implementor和abstraction(具体类) => *没有*反映了抽象和实现分离
+ * 一个词: 骨肉分离
+ * 一句话: 相对于暴力穷举式继承,使用运行时组合简化了两个继承树的组合
  * */
 
 abstract class Computer {
