@@ -9,6 +9,7 @@
  *
  * 一句话表述:
  *  - OOP版本的高阶函数
+ *  - 动态注入操作实现
  * 阐述:
  * const incStrategy = n=>n+1
  * const decStrategy = n=>n-1
