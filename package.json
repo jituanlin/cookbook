@@ -5,6 +5,7 @@
     "@types/ramda": "^0.26.44",
     "fp-ts": "^2.1.1",
     "gitlab": "^13.0.0",
+    "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.15",
     "ramda": "^0.26.1",
     "reflect-metadata": "^0.1.13",
