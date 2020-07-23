@@ -14,7 +14,7 @@
     "gts": "^2.0.2",
     "immutable": "^4.0.0-rc.12",
     "jest": "^26.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "ramda": "^0.26.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.3",
