@@ -32,15 +32,14 @@ class DirectorNode extends StorageNode {
   }
 
   getContent(): string {
-    return this.storageNodes.map(f => f.getContent()).join("\n");
+    return this.storageNodes.map(f => f.getContent()).join('\n');
   }
 }
 
-const file = new FileNode("one");
-const file2 = new FileNode("two");
+const file = new FileNode('one');
+const file2 = new FileNode('two');
 
 const dir = new DirectorNode([new DirectorNode([file]), file2]);
 
 console.log(file.getContent());
 console.log(dir.getContent());
-

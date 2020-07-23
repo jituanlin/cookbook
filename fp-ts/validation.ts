@@ -1,4 +1,4 @@
-import * as fp from "fp-ts";
+import * as fp from 'fp-ts';
 
 const callService = async n => {
   if (n % 2 !== 0) {

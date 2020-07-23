@@ -54,13 +54,13 @@ abstract class System {
 
 class Manjaro extends System {
   getName(): string {
-    return "runing on Manjaro";
+    return 'runing on Manjaro';
   }
 }
 
 class Ubuntu extends System {
   getName(): string {
-    return "runing on Manjaro";
+    return 'runing on Manjaro';
   }
 }
 
@@ -69,4 +69,3 @@ new DellComputer(new Ubuntu()).dislayInfo();
 
 new Huawei(new Manjaro()).dislayInfo();
 new Huawei(new Ubuntu()).dislayInfo();
-

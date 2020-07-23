@@ -1,5 +1,5 @@
-import * as fp from "fp-ts";
-import * as assert from "assert";
+import * as fp from 'fp-ts';
+import * as assert from 'assert';
 
 /*
 when pass `Apply` to `pipeable`, the return functions includes apFirst and apSecond,
@@ -18,15 +18,16 @@ assert.deepEqual(fp.option.apFirst(fa)(fb), fb);
 assert.deepEqual(fp.option.apSecond(fa)(fb), fa);
 assert.deepEqual(fp.option.apSecond(fa)(fc), fc); // `ap` on `none` always return `none`
 
-
 // `chainFirst` is a bit like `apFist`, but ignore the value inner `effect`(F[_]) which `fab` return
-const chainTo = fp.option.chainFirst((n:number)=>n>0? fp.option.some(n):fp.option.none);
+const chainTo = fp.option.chainFirst((n: number) =>
+  n > 0 ? fp.option.some(n) : fp.option.none
+);
 const fd = chainTo(fp.option.some(1));
 const fe = chainTo(fp.option.some(-1));
 const ff = chainTo(fp.option.none);
 
-assert.deepEqual(fd,fp.option.some(1))
-assert.deepEqual(fe,fp.option.none)
-assert.deepEqual(ff,fp.option.none)
+assert.deepEqual(fd, fp.option.some(1));
+assert.deepEqual(fe, fp.option.none);
+assert.deepEqual(ff, fp.option.none);
 
 /* --- */

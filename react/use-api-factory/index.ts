@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { constant, some, every } from 'lodash';
+import React, {useState} from 'react';
+import {constant, some, every} from 'lodash';
 import daggy from 'daggy';
 import ErrorDisplay from '../components/base-m/ErrorDisplay';
 import GlobalLoading from '../components/base-m/GlobalLoading';
@@ -89,7 +89,7 @@ Response.sequence = (...responseList) => {
   return Response.Success(responseList.map(response => response.data));
 };
 
-const useApiFactory = ({ apiCaller }) => ({
+const useApiFactory = ({apiCaller}) => ({
   defaultParams = {},
   transform: transformFactory = () => anything => anything,
 } = {}) => {
@@ -106,10 +106,10 @@ const useApiFactory = ({ apiCaller }) => ({
         Response.Success(
           withTransform
             ? transformFactory(transformOptions)(
-                await apiCaller({ ...defaultParams, ...params }),
+                await apiCaller({...defaultParams, ...params})
               )
-            : await apiCaller({ ...defaultParams, ...params }),
-        ),
+            : await apiCaller({...defaultParams, ...params})
+        )
       );
     } catch (error) {
       setResponse(Response.Failure(error));

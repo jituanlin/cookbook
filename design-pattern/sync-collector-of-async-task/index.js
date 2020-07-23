@@ -1,5 +1,5 @@
-import deepEqual from "deep-equal";
-import findIndex from "find-index/ponyfill";
+import deepEqual from 'deep-equal';
+import findIndex from 'find-index/ponyfill';
 
 class StackWithMaxSize {
   constructor(maxSize, state = []) {
@@ -27,7 +27,7 @@ class ResponseCache {
 const NOT_HIT_CACHE = {};
 
 export default class SyncCollectorOfAsyncTask {
-  constructor({ action, cacheSize = 24 }) {
+  constructor({action, cacheSize = 24}) {
     this.action = action;
     this.cache = new StackWithMaxSize(cacheSize);
     this.bindCollectedParamsAndActionPromise();
@@ -47,7 +47,7 @@ export default class SyncCollectorOfAsyncTask {
     });
   }
 
-  async getResultByReuseScheduledTask({ queryParams }) {
+  async getResultByReuseScheduledTask({queryParams}) {
     const currentParamsIndexFromCollectedParams = findIndex(
       this.collectedParams,
       paramsFromCollected => deepEqual(paramsFromCollected, queryParams)
@@ -61,8 +61,8 @@ export default class SyncCollectorOfAsyncTask {
     return NOT_HIT_CACHE;
   }
 
-  getResultFromCache({ queryParams }) {
-    const hitCache = this.cache.find(({ params: paramsWhenStore }) =>
+  getResultFromCache({queryParams}) {
+    const hitCache = this.cache.find(({params: paramsWhenStore}) =>
       deepEqual(paramsWhenStore, queryParams)
     );
     if (hitCache) {
@@ -71,35 +71,35 @@ export default class SyncCollectorOfAsyncTask {
     return NOT_HIT_CACHE;
   }
 
-  pushCache({ queryParams, result }) {
+  pushCache({queryParams, result}) {
     this.cache = this.cache.push(new ResponseCache(queryParams, result));
   }
 
-  async getResultFromCacheOrScheduledTask({ queryParams }) {
+  async getResultFromCacheOrScheduledTask({queryParams}) {
     const resultFromScheduledTask = await this.getResultByReuseScheduledTask({
-      queryParams
+      queryParams,
     });
     if (resultFromScheduledTask !== NOT_HIT_CACHE) {
       return resultFromScheduledTask;
     }
-    const resultFromCache = this.getResultFromCache({ queryParams });
+    const resultFromCache = this.getResultFromCache({queryParams});
     if (resultFromCache !== NOT_HIT_CACHE) {
       return resultFromCache;
     }
     return NOT_HIT_CACHE;
   }
 
-  async scheduleTaskAndReturnResult({ queryParams }) {
+  async scheduleTaskAndReturnResult({queryParams}) {
     this.collectedParams.push(queryParams);
     const index = this.collectedParams.length - 1;
     const response = await this.actionPromise;
     return response[index];
   }
 
-  async getResultFor({ queryParams, withCache = false }) {
+  async getResultFor({queryParams, withCache = false}) {
     if (withCache) {
       const resultFromCache = await this.getResultFromCacheOrScheduledTask({
-        queryParams
+        queryParams,
       });
       if (resultFromCache !== NOT_HIT_CACHE) {
         return resultFromCache;
@@ -111,11 +111,11 @@ export default class SyncCollectorOfAsyncTask {
     }
 
     const resultFromNewScheduledTask = await this.scheduleTaskAndReturnResult({
-      queryParams
+      queryParams,
     });
 
     if (withCache) {
-      this.pushCache({ queryParams, result: resultFromNewScheduledTask });
+      this.pushCache({queryParams, result: resultFromNewScheduledTask});
     }
     return resultFromNewScheduledTask;
   }

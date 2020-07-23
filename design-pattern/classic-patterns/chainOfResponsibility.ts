@@ -6,42 +6,42 @@
  * */
 
 abstract class FeedbackHandler {
-    protected successor:FeedbackHandler
-    setSuccessor(s:FeedbackHandler){
-        this.successor= s
-    }
-    abstract handle(diePeopleAccount:number):void
+  protected successor: FeedbackHandler;
+  setSuccessor(s: FeedbackHandler) {
+    this.successor = s;
+  }
+  abstract handle(diePeopleAccount: number): void;
 }
 
-class USACityHandler extends FeedbackHandler{
-    handle(diePeopleAccount: number): void {
-        if (diePeopleAccount<5){
-            console.log('everything is ok!')
-            return
-        }
-        if(this.successor){
-            this.successor.handle(diePeopleAccount)
-        }
-        throw new Error('we try everything already!')
+class USACityHandler extends FeedbackHandler {
+  handle(diePeopleAccount: number): void {
+    if (diePeopleAccount < 5) {
+      console.log('everything is ok!');
+      return;
     }
+    if (this.successor) {
+      this.successor.handle(diePeopleAccount);
+    }
+    throw new Error('we try everything already!');
+  }
 }
 
-class USAStateHandler extends FeedbackHandler{
-    handle(diePeopleAccount: number): void {
-        if (diePeopleAccount<100){
-            console.log('quit somebody')
-            return
-        }
-        if(this.successor){
-            this.successor.handle(diePeopleAccount)
-        }
-        throw new Error('we try everything already!')
+class USAStateHandler extends FeedbackHandler {
+  handle(diePeopleAccount: number): void {
+    if (diePeopleAccount < 100) {
+      console.log('quit somebody');
+      return;
     }
+    if (this.successor) {
+      this.successor.handle(diePeopleAccount);
+    }
+    throw new Error('we try everything already!');
+  }
 }
 
-const handler = new USACityHandler()
-handler.setSuccessor(new USAStateHandler())
+const handler = new USACityHandler();
+handler.setSuccessor(new USAStateHandler());
 
-handler.handle(1)
-handler.handle(50)
-handler.handle(150)
+handler.handle(1);
+handler.handle(50);
+handler.handle(150);

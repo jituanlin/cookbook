@@ -14,8 +14,8 @@
  * Difference     emit value first then                                 silence during period first
  *                silence during period                                 then emit latest value.
  * */
-import { interval, timer } from "rxjs";
-import { throttle, throttleTime } from "rxjs/operators";
+import {interval, timer} from 'rxjs';
+import {throttle, throttleTime} from 'rxjs/operators';
 
 const source$ = interval(100);
 

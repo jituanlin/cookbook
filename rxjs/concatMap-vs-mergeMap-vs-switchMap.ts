@@ -1,7 +1,7 @@
 /**
  * */
-import { interval, timer } from "rxjs";
-import { concatMap, mapTo, mergeMap, switchMap, take } from 'rxjs/operators';
+import {interval, timer} from 'rxjs';
+import {concatMap, mapTo, mergeMap, switchMap, take} from 'rxjs/operators';
 
 const source$ = interval(1000);
 
@@ -29,6 +29,8 @@ const S2 = () =>
  * output: 0 1 2 0 1 2
  * */
 const S3 = () =>
-  source$.pipe(mergeMap(x => interval(100).pipe(take(3)))).subscribe(console.log);
+  source$
+    .pipe(mergeMap(x => interval(100).pipe(take(3))))
+    .subscribe(console.log);
 
-S3()
+S3();

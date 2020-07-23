@@ -2,7 +2,7 @@
   "compileOnSave": true,
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": { "*": ["types/*"] },
+    "paths": {"*": ["types/*"]},
     "lib": ["es2015", "es2017"],
     "target": "es2017",
     "module": "commonjs",
@@ -25,7 +25,8 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "inlineSourceMap": true,
-    "importHelpers": false
+    "importHelpers": false,
+    "esModuleInterop": true
   },
   "exclude": [
     "node_modules*",

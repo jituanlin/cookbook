@@ -1,10 +1,9 @@
-import {merge, ReplaySubject, Subject} from "rxjs";
-import {distinct,tap} from "rxjs/operators";
+import {merge, ReplaySubject, Subject} from 'rxjs';
+import {distinct, tap} from 'rxjs/operators';
 
 const ob = new Subject();
 
-const ob2 = new Subject()
-
+const ob2 = new Subject();
 
 // ob.next({i:1,v:1})
 
@@ -12,11 +11,12 @@ const ob2 = new Subject()
 
 // ob2.next({i:3,v:3})
 
-const sub =  ob2.pipe(distinct((n:any)=>n.i),tap(console.log))
+const sub = ob2.pipe(
+  distinct((n: any) => n.i),
+  tap(console.log)
+);
 
-sub.subscribe(console.log)
+sub.subscribe(console.log);
 
-sub.subscribe(console.log)
-ob2.next({i:1,v:4})
-
-
+sub.subscribe(console.log);
+ob2.next({i: 1, v: 4});

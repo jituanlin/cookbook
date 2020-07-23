@@ -1,7 +1,7 @@
 /**
  * Metaphor1: Call takeaway -- you don't need to know
  * how to cook(how class init),
- * just take a phone(involve simple factory), 
+ * just take a phone(involve simple factory),
  * the food(object) is ready for you.
  * Metaphor2: 能召唤螺旋丸的卷轴,你不需要会捏螺旋丸,
  * 只要有这个卷轴,你就能打开卷轴甩个螺旋丸.
@@ -15,7 +15,7 @@
  * 1. accept relative simple parameter
  * 2. return a object of certain class
  * to hide the complex initiate logic of class
- * 
+ *
  * When: the initiate logic of class is complex and
  * repeat occur
  * */

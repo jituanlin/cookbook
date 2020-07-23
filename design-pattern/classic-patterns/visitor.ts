@@ -26,65 +26,58 @@
         而visitor模式的方法是静态(编译时)匹配好的
 * */
 
-
 interface Operation {
-    textMessage(m: Message): void
+  textMessage(m: Message): void;
 
-    fileMessage(m: Message): void
+  fileMessage(m: Message): void;
 }
 
 abstract class Message {
-    constructor(readonly content: string, readonly type: string) {
-    }
+  constructor(readonly content: string, readonly type: string) {}
 
-    abstract accept(op: Operation): void
+  abstract accept(op: Operation): void;
 }
 
 class TextMessage extends Message {
-    constructor(content: string) {
-        super(content, 'text');
-    }
+  constructor(content: string) {
+    super(content, 'text');
+  }
 
-    accept(op: Operation): void {
-        op.textMessage(this)
-    }
+  accept(op: Operation): void {
+    op.textMessage(this);
+  }
 }
 
 class FileMessage extends Message {
-    constructor(content: string) {
-        super(content, 'file');
-    }
+  constructor(content: string) {
+    super(content, 'file');
+  }
 
-    accept(op: Operation): void {
-        op.textMessage(this)
-    }
+  accept(op: Operation): void {
+    op.textMessage(this);
+  }
 }
 
 class PersistOp implements Operation {
-    textMessage(m: Message): void {
-        console.log(`saving message with content ${m.content} to database`)
-    }
+  textMessage(m: Message): void {
+    console.log(`saving message with content ${m.content} to database`);
+  }
 
-    fileMessage(m: Message): void {
-        console.log(`upload message with content ${m.content} to CDN`)
-    }
+  fileMessage(m: Message): void {
+    console.log(`upload message with content ${m.content} to CDN`);
+  }
 }
 
 class SendOp implements Operation {
-    textMessage(m: Message): void {
-        console.log(`send message with content ${m.content}`)
-    }
+  textMessage(m: Message): void {
+    console.log(`send message with content ${m.content}`);
+  }
 
-    fileMessage(m: Message): void {
-        console.log(`send file`)
-    }
+  fileMessage(m: Message): void {
+    console.log(`send file`);
+  }
 }
 
-
-const textMsg = new TextMessage('hi')
-textMsg.accept(new PersistOp())
-textMsg.accept(new SendOp())
-
-
-
-
+const textMsg = new TextMessage('hi');
+textMsg.accept(new PersistOp());
+textMsg.accept(new SendOp());

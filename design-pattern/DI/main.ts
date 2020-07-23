@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 
 export interface Type<T> extends Function {
-  new(...args: any[]): T;
+  new (...args: any[]): T;
 }
 
 export class Module {
@@ -9,14 +9,12 @@ export class Module {
     readonly providers: Array<Type<any>> = [],
     readonly components: Array<Type<any>>,
     readonly imports: Array<Module> = [],
-    readonly exports: Array<Type<any>> = [],
-  ) {
-  }
+    readonly exports: Array<Type<any>> = []
+  ) {}
 }
 
 export class Scanner {
-  constructor(private readonly container: Container) {
-  }
+  constructor(private readonly container: Container) {}
 
   scan(module: Module) {
     this.container.addModule(module);
@@ -27,8 +25,11 @@ export class Scanner {
 export class Injector {
   // 简化: 1.所有的依赖都是类 2.所有的依赖都是通过构造函数注入
   resolveInstance<T>(InstanceType: Type<T>, modules: Module[]): T {
-    const dependentTypes: Type<any>[] = Reflect.getMetadata('design:paramtypes', InstanceType) || [];
-    const dependentInstances = dependentTypes.map(Type => this.resolveInstance(Type, modules));
+    const dependentTypes: Type<any>[] =
+      Reflect.getMetadata('design:paramtypes', InstanceType) || [];
+    const dependentInstances = dependentTypes.map(Type =>
+      this.resolveInstance(Type, modules)
+    );
     const instance = new InstanceType(...dependentInstances);
     return instance;
   }
@@ -72,8 +73,7 @@ export class DI {
 }
 
 class Logger {
-  constructor() {
-  }
+  constructor() {}
 
   log(message: string) {
     console.log(message);
@@ -83,28 +83,20 @@ class Logger {
 const loggerModule = new Module([Logger], [], [], [Logger]);
 
 // 一旦去掉这个装饰器,Reflect就无法获取到design:paramtypes类型
-const Injectable = () => (target) => {
+const Injectable = () => target => {
   return target;
 };
 
 @Injectable()
 class CatService {
-  constructor(readonly logger: Logger) {
-  }
+  constructor(readonly logger: Logger) {}
 
   async findCat() {
     return this.logger.log('cat is missing');
   }
 }
 
-const appModule = new Module(
-  [CatService],
-  [CatService],
-  [loggerModule],
-  [],
-);
+const appModule = new Module([CatService], [CatService], [loggerModule], []);
 
 const di = new DI(appModule);
-di.get(CatService).then(
-  catService => catService.findCat(),
-);
+di.get(CatService).then(catService => catService.findCat());

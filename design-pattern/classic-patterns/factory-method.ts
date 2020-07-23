@@ -25,6 +25,6 @@
  *         factory method是着重于使得抽象类与抽象类之间的依赖关系更加灵活
  *
  * Core: Delegate the creation of dependent object to sub class.
- * 
- * When: Type of dependent object depend on concrete sub class.  
+ *
+ * When: Type of dependent object depend on concrete sub class.
  * */

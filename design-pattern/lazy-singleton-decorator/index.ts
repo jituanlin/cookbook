@@ -28,11 +28,11 @@ import * as R from 'ramda';
 const lazySingleton = () => <Result>(
   target: Object,
   propertyKey: string | symbol,
-  descriptor: TypedPropertyDescriptor<Result>,
+  descriptor: TypedPropertyDescriptor<Result>
 ) => {
   const originalGetter = descriptor.get;
   return {
-    get: function(): Result {
+    get: function (): Result {
       if (R.isNil(this.$$cache)) {
         this.$$cache = originalGetter.call(this);
       }

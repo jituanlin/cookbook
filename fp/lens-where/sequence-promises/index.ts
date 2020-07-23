@@ -11,7 +11,7 @@ const sequencePromises = R.curry(
           const result = await promise;
           return result;
         } catch (error) {
-          return  errorWrapper(error);
+          return errorWrapper(error);
         }
       }),
       Promise.all.bind(Promise)
@@ -19,4 +19,4 @@ const sequencePromises = R.curry(
   }
 );
 
-export default sequencePromises
+export default sequencePromises;

@@ -1,4 +1,4 @@
-import * as fp from 'fp-ts'
+import * as fp from 'fp-ts';
 
 /**
  * description:

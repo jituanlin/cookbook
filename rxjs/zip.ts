@@ -7,7 +7,7 @@
  *
  * */
 
-import { interval, zip } from "rxjs";
+import {interval, zip} from 'rxjs';
 
 const ob = interval(1000);
 const ob2 = interval(2000);

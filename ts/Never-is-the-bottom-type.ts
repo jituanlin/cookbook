@@ -5,4 +5,3 @@
  * */
 export type S1 = never extends any ? 1 : 0;
 export type S2 = never extends never ? 1 : 0;
-

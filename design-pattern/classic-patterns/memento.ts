@@ -8,53 +8,49 @@
             2. 客户端不需要回滚操作的时候也储存了快照,这就是浪费
 * */
 
-
 export class SystemMemento {
-    constructor(readonly kernelVersion: number,
-                readonly kdeName: string) {
-    }
+  constructor(readonly kernelVersion: number, readonly kdeName: string) {}
 }
 
 class System {
-    private kernelVersion: number
-    private kdeName: string
+  private kernelVersion: number;
+  private kdeName: string;
 
-    constructor(kernelVersion: number, kdeName: string) {
-        this.kdeName = kdeName
-        this.kernelVersion = kernelVersion
-    }
+  constructor(kernelVersion: number, kdeName: string) {
+    this.kdeName = kdeName;
+    this.kernelVersion = kernelVersion;
+  }
 
-    update() {
-        this.kernelVersion += 1
-    }
+  update() {
+    this.kernelVersion += 1;
+  }
 
-    changeKde(newKdeName: string) {
-        this.kdeName = newKdeName
-    }
+  changeKde(newKdeName: string) {
+    this.kdeName = newKdeName;
+  }
 
-    createMemento(): SystemMemento {
-        return new SystemMemento(this.kernelVersion, this.kdeName)
-    }
+  createMemento(): SystemMemento {
+    return new SystemMemento(this.kernelVersion, this.kdeName);
+  }
 
-    restore(m: SystemMemento) {
-        this.kernelVersion = m.kernelVersion
-        this.kdeName = m.kdeName
-    }
+  restore(m: SystemMemento) {
+    this.kernelVersion = m.kernelVersion;
+    this.kdeName = m.kdeName;
+  }
 }
 
+const myPoorSystem = new System(1, 'xfce');
 
-const myPoorSystem = new System(1, 'xfce')
+const beforeUpdateMemento = myPoorSystem.createMemento();
+myPoorSystem.update();
 
-const beforeUpdateMemento = myPoorSystem.createMemento()
-myPoorSystem.update()
-
-const beforeChangeKdeMemento = myPoorSystem.createMemento()
-myPoorSystem.changeKde('gnome')
+const beforeChangeKdeMemento = myPoorSystem.createMemento();
+myPoorSystem.changeKde('gnome');
 
 // 现在系统出现问题了,无法解决,只能回滚
 
 // 回滚到修改桌面环境之前的状态
-myPoorSystem.restore(beforeChangeKdeMemento)
+myPoorSystem.restore(beforeChangeKdeMemento);
 
 // 还是不行就再回滚
-myPoorSystem.restore(beforeUpdateMemento)
+myPoorSystem.restore(beforeUpdateMemento);

@@ -25,47 +25,46 @@
 
 //  不支持函数作为第一公民的语言中才需要这么做
 class Observe<T> {
-    notify(context: T): void {
-    }
+  notify(context: T): void {}
 }
 
 class BoyA extends Observe<string> {
-    notify(context: string): void {
-        console.log('boyA got message:', context)
-    }
+  notify(context: string): void {
+    console.log('boyA got message:', context);
+  }
 }
 
 class BoyB extends Observe<string> {
-    notify(context: string): void {
-        console.log('boyB got message:', context)
-    }
+  notify(context: string): void {
+    console.log('boyB got message:', context);
+  }
 }
 
 class Girl {
-    private sbs: Observe<string>[] = []
+  private sbs: Observe<string>[] = [];
 
-    addSpareTire(sb: Observe<string>) {
-        this.sbs.push(sb)
-        return {
-            giveUp: () => {
-                this.sbs.splice(this.sbs.findIndex(sb$ => sb === sb$), 1)
-            }
-        }
-    }
+  addSpareTire(sb: Observe<string>) {
+    this.sbs.push(sb);
+    return {
+      giveUp: () => {
+        this.sbs.splice(
+          this.sbs.findIndex(sb$ => sb === sb$),
+          1
+        );
+      },
+    };
+  }
 
-    speak(msg:string){
-        this.sbs.forEach(sb=>sb.notify(msg))
-    }
+  speak(msg: string) {
+    this.sbs.forEach(sb => sb.notify(msg));
+  }
 }
 
+const girl = new Girl();
+const boyA = new BoyA();
+const boyB = new BoyB();
 
-const girl = new Girl()
-const boyA = new BoyA()
-const boyB = new BoyB()
+girl.addSpareTire(boyA);
+girl.addSpareTire(boyB);
 
-girl.addSpareTire(boyA)
-girl.addSpareTire(boyB)
-
-girl.speak('I am hungry')
-
-
+girl.speak('I am hungry');

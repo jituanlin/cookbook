@@ -18,64 +18,62 @@
  *  不同:
  *      策略模式解决的是做一件事情有多种方式
  *      命令模式是解决执行命令的上下文需要被打包起来
-*   相同:
+ *   相同:
  *      使用统一的interface表示操作/命令
  * */
 
 interface Command {
-    do():void
-    unDo():void
+  do(): void;
+  unDo(): void;
 }
 
 class File {
-    content:string
-    constructor(readonly path:string, content:string) {
-        this.content=content
-    }
-    delete(){
-        console.log(`delete file:${this.path}`)
-    }
-    create(){
-        console.log(`create file ${this.path} with content:${this.content}`)
-    }
+  content: string;
+  constructor(readonly path: string, content: string) {
+    this.content = content;
+  }
+  delete() {
+    console.log(`delete file:${this.path}`);
+  }
+  create() {
+    console.log(`create file ${this.path} with content:${this.content}`);
+  }
 }
 
-class DeleteFileCommand implements Command{
-    constructor(readonly file:File) {
-    }
-    do(): void {
-        this.file.delete()
-    }
-    unDo(): void {
-        this.file.create()
-    }
+class DeleteFileCommand implements Command {
+  constructor(readonly file: File) {}
+  do(): void {
+    this.file.delete();
+  }
+  unDo(): void {
+    this.file.create();
+  }
 }
 
-class CreateFileCommand implements Command{
-    constructor(readonly file:File) {
-    }
-    do(): void {
-        this.file.create()
-    }
-    unDo(): void {
-        this.file.delete()
-    }
+class CreateFileCommand implements Command {
+  constructor(readonly file: File) {}
+  do(): void {
+    this.file.create();
+  }
+  unDo(): void {
+    this.file.delete();
+  }
 }
 
 export class UserOpHandler {
-    private latestCommand:Command|undefined
-    submit(c:Command){
-        this.latestCommand= c
-        c.do()
+  private latestCommand: Command | undefined;
+  submit(c: Command) {
+    this.latestCommand = c;
+    c.do();
+  }
+  unSubmit() {
+    if (this.latestCommand) {
+      this.latestCommand.unDo();
+      this.latestCommand = undefined;
     }
-    unSubmit(){
-        if (this.latestCommand){
-            this.latestCommand.unDo()
-            this.latestCommand=undefined
-        }
-    }
+  }
 }
 
-const handler = new UserOpHandler()
-handler.submit(new DeleteFileCommand(new File('./tmp.txt','42')))
-handler.unSubmit()
+const handler = new UserOpHandler();
+handler.submit(new DeleteFileCommand(new File('./tmp.txt', '42')));
+handler.unSubmit();

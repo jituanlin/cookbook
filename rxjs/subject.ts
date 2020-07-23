@@ -1,5 +1,5 @@
-import { from, Observable, Subject } from "rxjs";
-import { multicast } from "rxjs/operators";
+import {from, Observable, Subject} from 'rxjs';
+import {multicast} from 'rxjs/operators';
 
 /**
  * Subject is observable and observe
@@ -73,7 +73,7 @@ interface Subscribable_<T> {
 }
 
 const noopSubscription: Subscription_ = {
-  unSubscribe: () => {}
+  unSubscribe: () => {},
 };
 
 class Observable_<T> implements Subscribable_<T> {
@@ -92,7 +92,7 @@ const observable11 = new Observable_(observe => {
 });
 
 observable11.subscribe({
-  next: n => console.log(n)
+  next: n => console.log(n),
 });
 
 class Subject_<T> implements Observe_<T>, Subscribable_<T> {
@@ -102,7 +102,7 @@ class Subject_<T> implements Observe_<T>, Subscribable_<T> {
     return {
       unSubscribe: () => {
         this.observers = this.observers.splice(idx, 1);
-      }
+      },
     };
   }
   next(v) {
@@ -111,12 +111,12 @@ class Subject_<T> implements Observe_<T>, Subscribable_<T> {
 }
 
 const subject11 = new Subject_();
-subject11.subscribe({ next: n => console.log(n) });
+subject11.subscribe({next: n => console.log(n)});
 subject11.next(42);
 
 const subject12 = new Subject_();
-subject12.subscribe({ next: n => console.log(n) });
-subject12.subscribe({ next: n => console.log(n) });
+subject12.subscribe({next: n => console.log(n)});
+subject12.subscribe({next: n => console.log(n)});
 const observable12 = new Observable_(ob => {
   ob.next(Math.random());
   return noopSubscription;
@@ -125,7 +125,7 @@ observable12.subscribe(subject12);
 
 const multicast11 = <T>(observable: Observable_<T>, subject: Subject_<T>) => ({
   connect: () => observable.subscribe(subject),
-  subscribe: subject.subscribe.bind(subject)
+  subscribe: subject.subscribe.bind(subject),
 });
 const observable13 = new Observable_(observe => {
   observe.next(44);
@@ -133,8 +133,8 @@ const observable13 = new Observable_(observe => {
 });
 const subject13 = new Subject_();
 const multicasted11 = multicast11(observable13, subject13);
-multicasted11.subscribe({ next: n => console.log(n) });
-multicasted11.subscribe({ next: n => console.log(n) });
+multicasted11.subscribe({next: n => console.log(n)});
+multicasted11.subscribe({next: n => console.log(n)});
 multicasted11.connect();
 
 /* --- */

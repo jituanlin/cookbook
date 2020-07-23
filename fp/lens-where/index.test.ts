@@ -1,40 +1,40 @@
 import * as R from 'ramda';
-import lensWhere, { overValue } from './lensWhere';
+import lensWhere, {overValue} from './lensWhere';
 import * as assert from 'assert';
 
 const arrayTarget = [
-  { studentId: 10563001, score: 40 },
-  { studentId: 10563002, score: 50 },
-  { studentId: 10563002, score: 60 },
+  {studentId: 10563001, score: 40},
+  {studentId: 10563002, score: 50},
+  {studentId: 10563002, score: 60},
 ];
 
 const objectTarget = {
-  10563001: { studentId: 10563001, score: 40 },
-  10563002: { studentId: 10563002, score: 50 },
-  10563003: { studentId: 10563002, score: 60 },
+  10563001: {studentId: 10563001, score: 40},
+  10563002: {studentId: 10563002, score: 50},
+  10563003: {studentId: 10563002, score: 60},
 };
 
 const lens = lensWhere(R.propEq('studentId', 10563001));
 
 assert.deepEqual(
-  [0, { studentId: 10563001, score: 40 }],
+  [0, {studentId: 10563001, score: 40}],
   R.view(lens, arrayTarget)
 );
 
 assert.deepEqual(
   [
-    { studentId: 10563001, score: 40 },
-    { studentId: 10563002, score: 150 },
-    { studentId: 10563002, score: 60 },
+    {studentId: 10563001, score: 40},
+    {studentId: 10563002, score: 150},
+    {studentId: 10563002, score: 60},
   ],
-  R.set(lens, [1, { studentId: 10563002, score: 150 }], arrayTarget)
+  R.set(lens, [1, {studentId: 10563002, score: 150}], arrayTarget)
 );
 
 assert.deepEqual(
   [
-    { studentId: 10563001, score: 50 },
-    { studentId: 10563002, score: 50 },
-    { studentId: 10563002, score: 60 },
+    {studentId: 10563001, score: 50},
+    {studentId: 10563002, score: 50},
+    {studentId: 10563002, score: 60},
   ],
   R.over(
     lens,
@@ -56,32 +56,32 @@ assert.deepEqual(
 
 assert.deepEqual(
   [
-    { studentId: 10563001, score: 50 },
-    { studentId: 10563002, score: 50 },
-    { studentId: 10563002, score: 60 },
+    {studentId: 10563001, score: 50},
+    {studentId: 10563002, score: 50},
+    {studentId: 10563002, score: 60},
   ],
 
   R.over(lens, overValue(R.over(R.lensProp('score'), R.add(10))), arrayTarget)
 );
 
 assert.deepEqual(
-  ['10563001', { studentId: 10563001, score: 40 }],
+  ['10563001', {studentId: 10563001, score: 40}],
   R.view(lens, objectTarget)
 );
 assert.deepEqual(
   {
-    '10563001': { studentId: 10563001, score: 40 },
-    '10563002': { studentId: 10563002, score: 150 },
-    '10563003': { studentId: 10563002, score: 60 },
+    '10563001': {studentId: 10563001, score: 40},
+    '10563002': {studentId: 10563002, score: 150},
+    '10563003': {studentId: 10563002, score: 60},
   },
-  R.set(lens, [10563002, { studentId: 10563002, score: 150 }], objectTarget)
+  R.set(lens, [10563002, {studentId: 10563002, score: 150}], objectTarget)
 );
 
 assert.deepEqual(
   {
-    '10563001': { studentId: 10563001, score: 50 },
-    '10563002': { studentId: 10563002, score: 50 },
-    '10563003': { studentId: 10563002, score: 60 },
+    '10563001': {studentId: 10563001, score: 50},
+    '10563002': {studentId: 10563002, score: 50},
+    '10563003': {studentId: 10563002, score: 60},
   },
   R.over(lens, overValue(R.over(R.lensProp('score'), R.add(10))), objectTarget)
 );

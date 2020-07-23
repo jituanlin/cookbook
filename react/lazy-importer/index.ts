@@ -17,23 +17,23 @@
  * `
  * */
 const LazyImporter = executor => {
-    let resolve;
-    let reject;
-    const afterImport = new Promise((resolve$, reject$) => {
-      resolve = resolve$;
-      reject = reject$;
-    });
-    return {
-      startImport: async options => {
-        try {
-          const module = await executor(options);
-          resolve(module);
-        } catch (e) {
-          reject(e);
-        }
-      },
-      afterImport,
-    };
+  let resolve;
+  let reject;
+  const afterImport = new Promise((resolve$, reject$) => {
+    resolve = resolve$;
+    reject = reject$;
+  });
+  return {
+    startImport: async options => {
+      try {
+        const module = await executor(options);
+        resolve(module);
+      } catch (e) {
+        reject(e);
+      }
+    },
+    afterImport,
   };
-  
-  export default LazyImporter;
+};
+
+export default LazyImporter;

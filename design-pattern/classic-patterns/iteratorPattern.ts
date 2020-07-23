@@ -24,65 +24,62 @@
  * */
 
 interface Comparable<T> {
-    compare(b: T): number
+  compare(b: T): number;
 }
 
 interface IIterator<T extends Comparable<any>> {
-    next(): T
+  next(): T;
 
-    hasNext(): boolean
+  hasNext(): boolean;
 }
 
 interface IContainer<T extends Comparable<any>> {
-    createIterator(): IIterator<T>
+  createIterator(): IIterator<T>;
 }
 
 abstract class MyArray<T extends Comparable<any>> implements IContainer<T> {
-    readonly xs: T[]
+  readonly xs: T[];
 
-    constructor(...xs: T[]) {
-        this.xs = xs
-    }
+  constructor(...xs: T[]) {
+    this.xs = xs;
+  }
 
-    abstract createIterator(): IIterator<T>
+  abstract createIterator(): IIterator<T>;
 }
 
 class DescIterator<T extends Comparable<any>> implements IIterator<T> {
-    private readonly xs: T[]
-    private idx: number = 0
+  private readonly xs: T[];
+  private idx: number = 0;
 
-    constructor(xs: T[]) {
-        this.xs = xs.sort((a, b) => -a.compare(b))
+  constructor(xs: T[]) {
+    this.xs = xs.sort((a, b) => -a.compare(b));
+  }
 
-    }
+  next(): T {
+    return this.xs[this.idx++];
+  }
 
-    next(): T {
-        return this.xs[this.idx++]
-    }
-
-    hasNext(): boolean {
-        return this.idx < this.xs.length
-    }
-
+  hasNext(): boolean {
+    return this.idx < this.xs.length;
+  }
 }
 
 class Integer implements Comparable<number> {
-    constructor(readonly v: number) {
-    }
+  constructor(readonly v: number) {}
 
-    compare(b: number) {
-        return this.v === b ? 0 : this.v > b ? 1 : -1
-    }
+  compare(b: number) {
+    return this.v === b ? 0 : this.v > b ? 1 : -1;
+  }
 }
 
 class DescArray<T extends Comparable<any>> extends MyArray<T> {
-    createIterator(): IIterator<T> {
-        return new DescIterator(this.xs)
-    }
+  createIterator(): IIterator<T> {
+    return new DescIterator(this.xs);
+  }
 }
 
-const descArray = new DescArray(new Integer(1), new Integer(2))
-const iterator = descArray.createIterator()
+const descArray = new DescArray(new Integer(1), new Integer(2));
+const iterator = descArray.createIterator();
 while (iterator.hasNext()) {
-    console.log(iterator.next())
+  console.log(iterator.next());
 }

@@ -16,69 +16,67 @@
 * */
 
 class LoginProcessing {
-    private password: string
-    private userName: string
-    private fillingState: FillingState = new NeedFillUserNameState()
+  private password: string;
+  private userName: string;
+  private fillingState: FillingState = new NeedFillUserNameState();
 
-    setFillingState(s: FillingState) {
-        this.fillingState = s
-    }
+  setFillingState(s: FillingState) {
+    this.fillingState = s;
+  }
 
-    getUserName() {
-        return this.userName
-    }
+  getUserName() {
+    return this.userName;
+  }
 
-    getPassword() {
-        return this.password
-    }
+  getPassword() {
+    return this.password;
+  }
 
-    fillUserName(value: string) {
-        this.userName = value
-        this.setFillingState(new NeedFillPasswordState())
-    }
+  fillUserName(value: string) {
+    this.userName = value;
+    this.setFillingState(new NeedFillPasswordState());
+  }
 
-    fillPassword(value: string) {
-        this.password = value
-
+  fillPassword(value: string) {
+    this.password = value;
+  }
+  submit() {
+    const isValid = this.fillingState.trySubmit(this);
+    if (isValid) {
+      console.log('login success');
     }
-    submit(){
-        const isValid = this.fillingState.trySubmit(this)
-        if(isValid){
-            console.log('login success')
-        }
-    }
+  }
 }
 
-
 interface FillingState {
-    trySubmit(lp: LoginProcessing): boolean
+  trySubmit(lp: LoginProcessing): boolean;
 }
 
 class NeedFillUserNameState implements FillingState {
-    trySubmit(lp: LoginProcessing): boolean {
-        const isFilling = lp.getUserName()
-        if (!isFilling) {
-            console.log('please input username!')
-            return true
-        }
-        return false
+  trySubmit(lp: LoginProcessing): boolean {
+    const isFilling = lp.getUserName();
+    if (!isFilling) {
+      console.log('please input username!');
+      return true;
     }
+    return false;
+  }
 }
 
 class NeedFillPasswordState implements FillingState {
-    trySubmit(lp: LoginProcessing): boolean {
-        const isFilling = lp.getPassword()
-        if (!isFilling) {
-            console.log('please input password!')
-            return true
-        }
-        return false
+  trySubmit(lp: LoginProcessing): boolean {
+    const isFilling = lp.getPassword();
+    if (!isFilling) {
+      console.log('please input password!');
+      return true;
     }
+    return false;
+  }
 }
 
-const loginProcessing = new LoginProcessing()
-loginProcessing.submit()
-loginProcessing.fillUserName('jit')
-loginProcessing.submit()
-loginProcessing.fillPassword('***')
-loginProcessing.submit()
+const loginProcessing = new LoginProcessing();
+loginProcessing.submit();
+loginProcessing.fillUserName('jit');
+loginProcessing.submit();
+loginProcessing.fillPassword('***');
+loginProcessing.submit();

@@ -7,8 +7,8 @@
 // Further more, the state monad provide some useful functions to
 // enable us compose/construct that kind of computation more conveniently.
 
-import * as fp from "fp-ts";
-import * as assert from "assert";
+import * as fp from 'fp-ts';
+import * as assert from 'assert';
 
 /*construct a state monad*/
 
@@ -64,7 +64,7 @@ assert.deepEqual(f7(20), [2, 20]);
 const t2 = fp.state.gets<number[], number>(ns => ns[ns.length - 1]);
 const f8 = fp.state.chain((a: number) => (s: number[]) => [
   a + 1,
-  s.concat(a + 1)
+  s.concat(a + 1),
 ])(t2);
 assert.deepEqual(f8([0]), [1, [0, 1]]);
 

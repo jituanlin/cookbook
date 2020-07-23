@@ -16,13 +16,13 @@
  *
  *
  * */
-import { combineLatest, interval } from "rxjs";
-import { withLatestFrom } from "rxjs/operators";
+import {combineLatest, interval} from 'rxjs';
+import {withLatestFrom} from 'rxjs/operators';
 
 const ob = interval(2000);
 const ob2 = interval(1000);
 // [0,0] [1,2] [2,4]
-ob.pipe(withLatestFrom(ob2)).subscribe(console.log)
+ob.pipe(withLatestFrom(ob2)).subscribe(console.log);
 
 const ob3 = interval(2000);
 const ob4 = interval(1000);

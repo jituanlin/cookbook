@@ -9,7 +9,7 @@ export default class CallsMerger<Param, Result> {
   private init(
     debounceTime: number,
     maxWait: number,
-    batchApi: (params: ReadonlyArray<Param>) => Promise<ReadonlyArray<Result>>,
+    batchApi: (params: ReadonlyArray<Param>) => Promise<ReadonlyArray<Result>>
   ) {
     this.collectedParams = [];
     let resolveBatchApiCall: (params: ReadonlyArray<Result>) => void;
@@ -18,7 +18,7 @@ export default class CallsMerger<Param, Result> {
       (resolve, reject) => {
         resolveBatchApiCall = resolve;
         rejectBatchApiCall = reject;
-      },
+      }
     );
     this.debouncedBatchApi = _.debounce(
       () => {
@@ -32,14 +32,14 @@ export default class CallsMerger<Param, Result> {
       debounceTime,
       {
         maxWait,
-      },
+      }
     );
   }
 
   constructor(
     debounceTime: number,
     maxWait: number,
-    batchApi: (params: ReadonlyArray<Param>) => Promise<ReadonlyArray<Result>>,
+    batchApi: (params: ReadonlyArray<Param>) => Promise<ReadonlyArray<Result>>
   ) {
     this.init(debounceTime, maxWait, batchApi);
   }
