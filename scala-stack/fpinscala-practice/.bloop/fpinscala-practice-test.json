@@ -1,0 +1,686 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "fpinscala-practice-test",
+        "directory": "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice",
+        "workspaceDir": "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice",
+        "sources": [
+            "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice/src/test/scala-2.13",
+            "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice/src/test/scala",
+            "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice/src/test/java",
+            "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice/target/scala-2.13/src_managed/test"
+        ],
+        "dependencies": [
+            "fpinscala-practice"
+        ],
+        "classpath": [
+            "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice/.bloop/fpinscala-practice/scala-2.13/classes",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-mustmatchers_2.13/3.2.0/scalatest-mustmatchers_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-wordspec_2.13/3.2.0/scalatest-wordspec_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scala-lang/modules/scala-xml_2.13/1.2.0/scala-xml_2.13-1.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-core_2.13/3.2.0/scalatest-core_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-funspec_2.13/3.2.0/scalatest-funspec_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/typelevel/cats-kernel_2.13/2.0.0/cats-kernel_2.13-2.0.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalactic/scalactic_2.13/3.2.0/scalactic_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-featurespec_2.13/3.2.0/scalatest-featurespec_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-flatspec_2.13/3.2.0/scalatest-flatspec_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-freespec_2.13/3.2.0/scalatest-freespec_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-matchers-core_2.13/3.2.0/scalatest-matchers-core_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/typelevel/cats-macros_2.13/2.0.0/cats-macros_2.13-2.0.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-refspec_2.13/3.2.0/scalatest-refspec_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest_2.13/3.2.0/scalatest_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-propspec_2.13/3.2.0/scalatest-propspec_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-diagrams_2.13/3.2.0/scalatest-diagrams_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-shouldmatchers_2.13/3.2.0/scalatest-shouldmatchers_2.13-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/typelevel/cats-core_2.13/2.0.0/cats-core_2.13-2.0.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-compatible/3.2.0/scalatest-compatible-3.2.0.jar",
+            "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-funsuite_2.13/3.2.0/scalatest-funsuite_2.13-3.2.0.jar"
+        ],
+        "out": "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice/.bloop/fpinscala-practice",
+        "classesDir": "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice/.bloop/fpinscala-practice/scala-2.13/test-classes",
+        "resources": [
+            "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice/src/test/resources",
+            "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice/target/scala-2.13/resource_managed/test"
+        ],
+        "scala": {
+            "organization": "org.scala-lang",
+            "name": "scala-compiler",
+            "version": "2.13.1",
+            "options": [
+                "-Xplugin:/home/jituanlin/.cache/coursier/v1/https/repo.artima.com/releases/com/artima/supersafe/supersafe_2.13.1/1.1.10/supersafe_2.13.1-1.1.10.jar"
+            ],
+            "jars": [
+                "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scala-lang/scala-compiler/2.13.1/scala-compiler-2.13.1.jar",
+                "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1.jar",
+                "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1.jar",
+                "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6.jar",
+                "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/org/fusesource/jansi/jansi/1.12/jansi-1.12.jar"
+            ],
+            "analysis": "/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice/target/streams/test/bloopAnalysisOut/_global/streams/inc_compile_2.13.zip",
+            "setup": {
+                "order": "mixed",
+                "addLibraryToBootClasspath": true,
+                "addCompilerToClasspath": false,
+                "addExtraJarsToClasspath": false,
+                "manageBootClasspath": true,
+                "filterLibraryFromClasspath": true
+            }
+        },
+        "java": {
+            "options": [
+                
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "/usr/lib/jvm/java-11-openjdk-amd64",
+                "options": [
+                    "-Duser.dir=/home/jituanlin/codes/cookbook/scala-stack/fpinscala-practice"
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-reflect",
+                    "version": "2.13.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-reflect",
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1.jar"
+                        },
+                        {
+                            "name": "scala-reflect",
+                            "classifier": "sources",
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.13.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-mustmatchers_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-mustmatchers_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "8ef70432cf8a630f7a01fae73f5406258728faa1"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-mustmatchers_2.13/3.2.0/scalatest-mustmatchers_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-mustmatchers_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "8590fb105130f01d6e5574a5b8b27868a20abe97"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-mustmatchers_2.13/3.2.0/scalatest-mustmatchers_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-wordspec_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-wordspec_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "52e8906c92f7ff0a13671ad75d9704d93ca938bd"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-wordspec_2.13/3.2.0/scalatest-wordspec_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-wordspec_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "c40f99497cc5d1e458acbc1e31910157d187c9f5"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-wordspec_2.13/3.2.0/scalatest-wordspec_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang.modules",
+                    "name": "scala-xml_2.13",
+                    "version": "1.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-xml_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "f6abd60d28c189f05183b26c5363713d1d126b83"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scala-lang/modules/scala-xml_2.13/1.2.0/scala-xml_2.13-1.2.0.jar"
+                        },
+                        {
+                            "name": "scala-xml_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "7a7c99769f3823091a150378f37a1d7b7ed73055"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scala-lang/modules/scala-xml_2.13/1.2.0/scala-xml_2.13-1.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-core_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-core_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "29eb9344c741ca67459381d8cbd0c7765d9f20ef"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-core_2.13/3.2.0/scalatest-core_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-core_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "9dea3c566abcedbd4f77290dc0b5e0df03e7d112"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-core_2.13/3.2.0/scalatest-core_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-funspec_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-funspec_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "0463d1b3b84811e96a03f0e0ae5df6ccaae24c96"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-funspec_2.13/3.2.0/scalatest-funspec_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-funspec_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "7f5b248650996734442a8713e33d9b1547e0aab9"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-funspec_2.13/3.2.0/scalatest-funspec_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-kernel_2.13",
+                    "version": "2.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-kernel_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "6f09e94c52e9bf53b3fa4e2d6a3365abfdd52268"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/typelevel/cats-kernel_2.13/2.0.0/cats-kernel_2.13-2.0.0.jar"
+                        },
+                        {
+                            "name": "cats-kernel_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "1ce51a371bf05d60bfbd68f68c529588f409c19c"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/typelevel/cats-kernel_2.13/2.0.0/cats-kernel_2.13-2.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalactic",
+                    "name": "scalactic_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalactic_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "3935d8629ea203fbfa7d3a3b1599d21646ea32f6"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalactic/scalactic_2.13/3.2.0/scalactic_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalactic_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "8b4aa21937d3de4b0396bc503231f4a7560d8908"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalactic/scalactic_2.13/3.2.0/scalactic_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-featurespec_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-featurespec_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "ffd4a256393bf9d7b232a2164cf918944b6b325c"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-featurespec_2.13/3.2.0/scalatest-featurespec_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-featurespec_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "ff89a47141271e8d7765a84cde1650d8a21c6cf4"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-featurespec_2.13/3.2.0/scalatest-featurespec_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-flatspec_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-flatspec_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "118d2e35873ba9c1889438850ffee17e19d80e8c"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-flatspec_2.13/3.2.0/scalatest-flatspec_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-flatspec_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "c1915ad12678c79a379524290355811e0ef0c9d7"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-flatspec_2.13/3.2.0/scalatest-flatspec_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-freespec_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-freespec_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "8bc4075e537022f88c44ff807163c3f4b220e5a1"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-freespec_2.13/3.2.0/scalatest-freespec_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-freespec_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "a31436bfab7ef052c0eddca59a455199e9c9c73f"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-freespec_2.13/3.2.0/scalatest-freespec_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-matchers-core_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-matchers-core_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "4549d775e2c85e32e0e8b408829ebe6c230b67b8"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-matchers-core_2.13/3.2.0/scalatest-matchers-core_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-matchers-core_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "17c21589d07b5f25829fdfcdfbdcce5df765031d"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-matchers-core_2.13/3.2.0/scalatest-matchers-core_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-macros_2.13",
+                    "version": "2.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-macros_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "92e1dcce516113377092d21b833a2ddb347a2408"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/typelevel/cats-macros_2.13/2.0.0/cats-macros_2.13-2.0.0.jar"
+                        },
+                        {
+                            "name": "cats-macros_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "8abdccbb568292abed1103ec379eaeca3e795d60"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/typelevel/cats-macros_2.13/2.0.0/cats-macros_2.13-2.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-refspec_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-refspec_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "0192e00bd4f44b93e115bbd178ad7fb9a403168f"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-refspec_2.13/3.2.0/scalatest-refspec_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-refspec_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "f63b7ec43a939a178d13e1c4961153f5586d4185"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-refspec_2.13/3.2.0/scalatest-refspec_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "68b2fd873ce35b2a6d792ac5e7880c4873589f88"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest_2.13/3.2.0/scalatest_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "77c10ec06fd4b130e2c2d16a652014705fbab676"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest_2.13/3.2.0/scalatest_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-propspec_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-propspec_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "11ab33f1c6c6a02e5ed3c8796959fbdc92c693ba"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-propspec_2.13/3.2.0/scalatest-propspec_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-propspec_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "035b29d9d1c5139ce2ca5f01047793b9b6285936"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-propspec_2.13/3.2.0/scalatest-propspec_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-diagrams_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-diagrams_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "4fa3fe73e3c2c07bb6a813b48fa55e17fa449842"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-diagrams_2.13/3.2.0/scalatest-diagrams_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-diagrams_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "f61761834cb410b5887648d74204771efb6615fe"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-diagrams_2.13/3.2.0/scalatest-diagrams_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-shouldmatchers_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-shouldmatchers_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "ca2357ccacffe723519405490a6bda4971757462"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-shouldmatchers_2.13/3.2.0/scalatest-shouldmatchers_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-shouldmatchers_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "4cdfb7dfd5c7493758e079010e5ffd1062130149"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-shouldmatchers_2.13/3.2.0/scalatest-shouldmatchers_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-core_2.13",
+                    "version": "2.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-core_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "8480663a543dba8fc7679ccac371c95da398e1b7"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/typelevel/cats-core_2.13/2.0.0/cats-core_2.13-2.0.0.jar"
+                        },
+                        {
+                            "name": "cats-core_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "0fc65271eb0cde015c11ee69592528c3da808c40"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/typelevel/cats-core_2.13/2.0.0/cats-core_2.13-2.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-compatible",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-compatible",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "29c6b56040fdd0fe1af3255d7acacd691a960ff3"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-compatible/3.2.0/scalatest-compatible-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-compatible",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "1e6b13866e543f4637fe36c956ef61d1eb9b4a8a"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-compatible/3.2.0/scalatest-compatible-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-funsuite_2.13",
+                    "version": "3.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-funsuite_2.13",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "53937d57b9270423e129c580ffc7a89ceb99f93e"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-funsuite_2.13/3.2.0/scalatest-funsuite_2.13-3.2.0.jar"
+                        },
+                        {
+                            "name": "scalatest-funsuite_2.13",
+                            "classifier": "sources",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "47ff586dffb8fa22d4ba1047922603d5adbdcf84"
+                            },
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo.huaweicloud.com/repository/maven/org/scalatest/scalatest-funsuite_2.13/3.2.0/scalatest-funsuite_2.13-3.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.13.1",
+                    "configurations": "optional",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/home/jituanlin/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "test"
+        ]
+    }
+}

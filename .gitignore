@@ -114,3 +114,8 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/node
 
 build
+
+**/bin/
+**/project/
+**/target/
+**/build/
