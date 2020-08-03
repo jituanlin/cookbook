@@ -1,8 +1,8 @@
 /**
- * Actual `pipe` operator,
- * but without introduce any function(`pipe`,`compose`),
- * for anybody who **scare** functional programming
- * */
+ * Is actually the "pipe" operator,
+ * But it did not introduce any functions (`pipe`, `compose`),
+ * For anyone who is afraid of functional programming ^ _ ^.
+ **/
 
 const From = (xs: number[]) => ({
   inc: () => Inc(xs),

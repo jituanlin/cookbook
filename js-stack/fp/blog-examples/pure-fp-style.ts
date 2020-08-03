@@ -1,12 +1,12 @@
 import * as fp from 'fp-ts';
 
-type LogGreatestNumber = (xs: number[]) => fp.io.IO<void>;
-const logGreatestNumber: LogGreatestNumber = fp.function.flow(
+type LogMaxNumber = (xs: number[]) => fp.io.IO<void>;
+const logMaxNumber: LogMaxNumber = fp.function.flow(
   fp.nonEmptyArray.max(fp.ord.ordNumber),
   fp.console.log
 );
 
-const main: fp.io.IO<void> = logGreatestNumber([1, 2, 3, 4, 5]);
+const main: () => void = () => logMaxNumber([1, 2, 3, 4, 5])();
 
 /*
 log: 5

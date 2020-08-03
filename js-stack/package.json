@@ -22,6 +22,7 @@
     "ts-jest": "^26.1.1",
     "ts-lint": "^4.5.1",
     "ts-loader": "^7.0.5",
+    "ts-node": "^8.10.2",
     "ts-toolbelt": "^4.8.24",
     "typescript": "^3.9.6",
     "webpack": "^4.43.0",
