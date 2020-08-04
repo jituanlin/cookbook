@@ -1,4 +1,4 @@
-import deepEqual from 'deep-equal';
+import deepStrictEqual from 'deep-equal';
 import findIndex from 'find-index/ponyfill';
 
 class StackWithMaxSize {
@@ -50,7 +50,7 @@ export default class SyncCollectorOfAsyncTask {
   async getResultByReuseScheduledTask({queryParams}) {
     const currentParamsIndexFromCollectedParams = findIndex(
       this.collectedParams,
-      paramsFromCollected => deepEqual(paramsFromCollected, queryParams)
+      paramsFromCollected => deepStrictEqual(paramsFromCollected, queryParams)
     );
 
     if (currentParamsIndexFromCollectedParams !== -1) {
@@ -63,7 +63,7 @@ export default class SyncCollectorOfAsyncTask {
 
   getResultFromCache({queryParams}) {
     const hitCache = this.cache.find(({params: paramsWhenStore}) =>
-      deepEqual(paramsWhenStore, queryParams)
+      deepStrictEqual(paramsWhenStore, queryParams)
     );
     if (hitCache) {
       return hitCache.response;
