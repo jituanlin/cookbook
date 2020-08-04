@@ -11,3 +11,4 @@ class Exercise431tSpec extends AnyFlatSpec {
     assert(someB.getOrElse(3) === 2)
   }
 }
+ 
