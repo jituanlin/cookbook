@@ -43,7 +43,7 @@ export default class CallsMerger<Param, Result> {
   }
 
   async callApiSingly(param: Param): Promise<Result> {
-    this.collectedParams = [param, ...this.collectedParams];
+    this.collectedParams = [...this.collectedParams, param];
     const positionInResults = this.collectedParams.length - 1;
     this.debouncedBatchApi();
     const results = await this.resultOfBatchApiCall;

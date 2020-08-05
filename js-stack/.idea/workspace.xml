@@ -36,36 +36,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2e1cd0c-36ef-4579-92b7-4b042af9f1a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/blog-examples/js-extend-obj-to-iteratable.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-examples/js-iteratable-wrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-pattern/DI/index.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-pattern/lazy-singleton-decorator/index.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-pattern/memorize-decorator/index.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/hfy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/js-stack.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/design-pattern/DI/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/design-pattern/DI/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design-pattern/async-queue/index.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/design-pattern/async-queue/index.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design-pattern/call-merger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/design-pattern/call-merger/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design-pattern/lazy-singleton-decorator/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/design-pattern/lazy-singleton-decorator/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design-pattern/memorize-decorator/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/design-pattern/memorize-decorator/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fp/blog-examples/currying-implementation.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog-examples/currying-implementation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fp/blog-examples/fold.ts" beforeDir="false" afterPath="$PROJECT_DIR$/blog-examples/fold.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fp/blog-examples/impure-fp-style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/blog-examples/impure-fp-style.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fp/blog-examples/pipe-operator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/blog-examples/pipe-operator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fp/blog-examples/pure-fp-style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/blog-examples/pure-fp-style.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fp/blog-examples/using-intermediate-variable-instead-of-pipe-operator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/blog-examples/using-intermediate-variable-instead-of-pipe-operator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fp/blog-examples/with-currying.ts" beforeDir="false" afterPath="$PROJECT_DIR$/blog-examples/with-currying.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/iteration/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lodash/debounce.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lodash/debounce.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodejs/create-server-by-native-apis/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/nodejs/create-server-by-native-apis/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react/get-on-copy-listener-pair/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/react/get-on-copy-listener-pair/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react/lazy-importer/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/react/lazy-importer/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react/use-api-factory/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/TimeOut.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/TimeOut.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,14 +85,14 @@
       <recent name="$PROJECT_DIR$/utils/TimeOut.ts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fp" />
       <recent name="$PROJECT_DIR$/blog-examples" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/react" />
       <recent name="$PROJECT_DIR$/fp/pipeline" />
-      <recent name="$PROJECT_DIR$/fp/pipe-but-ramda-less" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.decorated attribute should be cached when first access">
+  <component name="RunManager" selected="Jest.memorized property should cache call result">
     <configuration name="basic functionality test" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -161,16 +132,16 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="should AsyncQueue ignore error of previous job" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="memorized property should cache call result" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/design-pattern/async-queue/index.test.ts" />
+      <test-file value="$PROJECT_DIR$/design-pattern/memorize-decorator/index.test.ts" />
       <test-names>
-        <test-name value="should AsyncQueue ignore error of previous job" />
+        <test-name value="memorized property should cache call result" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -191,20 +162,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Jest.should AsyncQueue ignore error of previous job" />
       <item itemvalue="Jest.should CallMerger merge all calls in the interval" />
       <item itemvalue="Jest.debounce test" />
-      <item itemvalue="Node.js.index.test.ts" />
       <item itemvalue="Jest.basic functionality test" />
       <item itemvalue="Jest.decorated attribute should be cached when first access" />
+      <item itemvalue="Jest.memorized property should cache call result" />
+      <item itemvalue="Node.js.index.test.ts" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.memorized property should cache call result" />
         <item itemvalue="Jest.decorated attribute should be cached when first access" />
         <item itemvalue="Jest.basic functionality test" />
         <item itemvalue="Jest.should CallMerger merge all calls in the interval" />
         <item itemvalue="Jest.debounce test" />
-        <item itemvalue="Jest.should AsyncQueue ignore error of previous job" />
       </list>
     </recent_temporary>
   </component>
@@ -239,7 +210,7 @@
       <workItem from="1596503391247" duration="4542000" />
       <workItem from="1596519151436" duration="5338000" />
       <workItem from="1596594705841" duration="6784000" />
-      <workItem from="1596613371064" duration="6270000" />
+      <workItem from="1596613371064" duration="7922000" />
     </task>
     <servers />
   </component>
@@ -275,74 +246,74 @@
       <screen x="0" y="0" width="1680" height="945" />
     </state>
     <state x="100" y="100" width="1480" height="745" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1680.945@0.0.1680.945" timestamp="1596613228738" />
-    <state x="583" y="322" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1596417568638">
+    <state x="583" y="322" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1596620450198">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state x="583" y="322" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1680.945@0.0.1680.945" timestamp="1596417568638" />
-    <state width="1659" height="357" key="GridCell.Tab.0.bottom" timestamp="1596616448620">
+    <state x="583" y="322" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1680.945@0.0.1680.945" timestamp="1596620450198" />
+    <state width="1659" height="357" key="GridCell.Tab.0.bottom" timestamp="1596622756107">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="357" key="GridCell.Tab.0.bottom/0.0.1680.945@0.0.1680.945" timestamp="1596616448620" />
-    <state width="1659" height="357" key="GridCell.Tab.0.center" timestamp="1596616448618">
+    <state width="1659" height="357" key="GridCell.Tab.0.bottom/0.0.1680.945@0.0.1680.945" timestamp="1596622756107" />
+    <state width="1659" height="357" key="GridCell.Tab.0.center" timestamp="1596622756105">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="357" key="GridCell.Tab.0.center/0.0.1680.945@0.0.1680.945" timestamp="1596616448618" />
-    <state width="1659" height="357" key="GridCell.Tab.0.left" timestamp="1596616448617">
+    <state width="1659" height="357" key="GridCell.Tab.0.center/0.0.1680.945@0.0.1680.945" timestamp="1596622756105" />
+    <state width="1659" height="357" key="GridCell.Tab.0.left" timestamp="1596622756104">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="357" key="GridCell.Tab.0.left/0.0.1680.945@0.0.1680.945" timestamp="1596616448617" />
-    <state width="1659" height="357" key="GridCell.Tab.0.right" timestamp="1596616448619">
+    <state width="1659" height="357" key="GridCell.Tab.0.left/0.0.1680.945@0.0.1680.945" timestamp="1596622756104" />
+    <state width="1659" height="357" key="GridCell.Tab.0.right" timestamp="1596622756106">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="357" key="GridCell.Tab.0.right/0.0.1680.945@0.0.1680.945" timestamp="1596616448619" />
-    <state width="1659" height="245" key="GridCell.Tab.1.bottom" timestamp="1596613974390">
+    <state width="1659" height="357" key="GridCell.Tab.0.right/0.0.1680.945@0.0.1680.945" timestamp="1596622756106" />
+    <state width="1659" height="245" key="GridCell.Tab.1.bottom" timestamp="1596622756095">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.1.bottom/0.0.1680.945@0.0.1680.945" timestamp="1596613974390" />
-    <state width="1659" height="245" key="GridCell.Tab.1.center" timestamp="1596613974388">
+    <state width="1659" height="245" key="GridCell.Tab.1.bottom/0.0.1680.945@0.0.1680.945" timestamp="1596622756095" />
+    <state width="1659" height="245" key="GridCell.Tab.1.center" timestamp="1596622756093">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.1.center/0.0.1680.945@0.0.1680.945" timestamp="1596613974388" />
-    <state width="1659" height="245" key="GridCell.Tab.1.left" timestamp="1596613974388">
+    <state width="1659" height="245" key="GridCell.Tab.1.center/0.0.1680.945@0.0.1680.945" timestamp="1596622756093" />
+    <state width="1659" height="245" key="GridCell.Tab.1.left" timestamp="1596622756092">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.1.left/0.0.1680.945@0.0.1680.945" timestamp="1596613974388" />
-    <state width="1659" height="245" key="GridCell.Tab.1.right" timestamp="1596613974389">
+    <state width="1659" height="245" key="GridCell.Tab.1.left/0.0.1680.945@0.0.1680.945" timestamp="1596622756092" />
+    <state width="1659" height="245" key="GridCell.Tab.1.right" timestamp="1596622756094">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.1.right/0.0.1680.945@0.0.1680.945" timestamp="1596613974389" />
-    <state width="1659" height="245" key="GridCell.Tab.2.bottom" timestamp="1596613974392">
+    <state width="1659" height="245" key="GridCell.Tab.1.right/0.0.1680.945@0.0.1680.945" timestamp="1596622756094" />
+    <state width="1659" height="245" key="GridCell.Tab.2.bottom" timestamp="1596622756097">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.2.bottom/0.0.1680.945@0.0.1680.945" timestamp="1596613974392" />
-    <state width="1659" height="245" key="GridCell.Tab.2.center" timestamp="1596613974391">
+    <state width="1659" height="245" key="GridCell.Tab.2.bottom/0.0.1680.945@0.0.1680.945" timestamp="1596622756097" />
+    <state width="1659" height="245" key="GridCell.Tab.2.center" timestamp="1596622756096">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.2.center/0.0.1680.945@0.0.1680.945" timestamp="1596613974391" />
-    <state width="1659" height="245" key="GridCell.Tab.2.left" timestamp="1596613974390">
+    <state width="1659" height="245" key="GridCell.Tab.2.center/0.0.1680.945@0.0.1680.945" timestamp="1596622756096" />
+    <state width="1659" height="245" key="GridCell.Tab.2.left" timestamp="1596622756095">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.2.left/0.0.1680.945@0.0.1680.945" timestamp="1596613974390" />
-    <state width="1659" height="245" key="GridCell.Tab.2.right" timestamp="1596613974392">
+    <state width="1659" height="245" key="GridCell.Tab.2.left/0.0.1680.945@0.0.1680.945" timestamp="1596622756095" />
+    <state width="1659" height="245" key="GridCell.Tab.2.right" timestamp="1596622756097">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.2.right/0.0.1680.945@0.0.1680.945" timestamp="1596613974392" />
-    <state width="1659" height="245" key="GridCell.Tab.3.bottom" timestamp="1596613974395">
+    <state width="1659" height="245" key="GridCell.Tab.2.right/0.0.1680.945@0.0.1680.945" timestamp="1596622756097" />
+    <state width="1659" height="245" key="GridCell.Tab.3.bottom" timestamp="1596622756101">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.3.bottom/0.0.1680.945@0.0.1680.945" timestamp="1596613974395" />
-    <state width="1659" height="245" key="GridCell.Tab.3.center" timestamp="1596613974394">
+    <state width="1659" height="245" key="GridCell.Tab.3.bottom/0.0.1680.945@0.0.1680.945" timestamp="1596622756101" />
+    <state width="1659" height="245" key="GridCell.Tab.3.center" timestamp="1596622756099">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.3.center/0.0.1680.945@0.0.1680.945" timestamp="1596613974394" />
-    <state width="1659" height="245" key="GridCell.Tab.3.left" timestamp="1596613974393">
+    <state width="1659" height="245" key="GridCell.Tab.3.center/0.0.1680.945@0.0.1680.945" timestamp="1596622756099" />
+    <state width="1659" height="245" key="GridCell.Tab.3.left" timestamp="1596622756098">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.3.left/0.0.1680.945@0.0.1680.945" timestamp="1596613974393" />
-    <state width="1659" height="245" key="GridCell.Tab.3.right" timestamp="1596613974395">
+    <state width="1659" height="245" key="GridCell.Tab.3.left/0.0.1680.945@0.0.1680.945" timestamp="1596622756098" />
+    <state width="1659" height="245" key="GridCell.Tab.3.right" timestamp="1596622756100">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state width="1659" height="245" key="GridCell.Tab.3.right/0.0.1680.945@0.0.1680.945" timestamp="1596613974395" />
+    <state width="1659" height="245" key="GridCell.Tab.3.right/0.0.1680.945@0.0.1680.945" timestamp="1596622756100" />
     <state x="325" y="153" key="IDE.errors.dialog" timestamp="1595783272657">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
@@ -356,10 +327,10 @@
       <screen x="0" y="0" width="1680" height="945" />
     </state>
     <state x="525" y="218" width="630" height="566" key="find.popup/0.0.1680.945@0.0.1680.945" timestamp="1596619491901" />
-    <state x="505" y="206" width="838" height="693" key="search.everywhere.popup" timestamp="1596617801951">
+    <state x="505" y="206" width="838" height="693" key="search.everywhere.popup" timestamp="1596620448840">
       <screen x="0" y="0" width="1680" height="945" />
     </state>
-    <state x="505" y="206" width="838" height="693" key="search.everywhere.popup/0.0.1680.945@0.0.1680.945" timestamp="1596617801951" />
+    <state x="505" y="206" width="838" height="693" key="search.everywhere.popup/0.0.1680.945@0.0.1680.945" timestamp="1596620448840" />
     <state x="505" y="224" width="838" height="676" key="search.everywhere.popup/0.23.1680.922@0.23.1680.922" timestamp="1595763762142" />
   </component>
   <component name="XDebuggerManager">
