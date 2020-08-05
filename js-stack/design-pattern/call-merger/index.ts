@@ -1,5 +1,7 @@
 import {debounce} from 'lodash';
-
+/**
+ * CallMerger is used to merge multiple API calls in a certain time interval into a batch version of API call.
+ * */
 export default class CallsMerger<Param, Result> {
   private collectedParams: ReadonlyArray<Param>;
   private resultOfBatchApiCall: Promise<ReadonlyArray<Result>>;
