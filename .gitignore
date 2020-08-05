@@ -119,3 +119,5 @@ build
 **/project/
 **/target/
 **/build/
+**/.idea
+**/.vscode*
