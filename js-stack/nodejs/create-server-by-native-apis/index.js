@@ -1,3 +1,6 @@
+/**
+ * Following code is a example create a web server using only native node API.
+ * */
 const http = require('http');
 const server = http.createServer((req, res) => {
   console.log(req.url);

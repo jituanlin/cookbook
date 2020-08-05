@@ -1,7 +1,5 @@
 /**
- * @description use for lazy import module
- * Sometimes, we need load module dynamic, use this factory function
- * will create a convenient interface for using this lazy module and init it
+ * It is used to lazily import a module.
  * @example
  * `
  *  const {afterImport:afterImportVisibility,startImport:startImportVisibility }= LazyImporter(()=>import('visibilityjs'))

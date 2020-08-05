@@ -1,3 +1,6 @@
+/**
+ * The following code is a simplify version of nestjs DI(dependent inject) implementation.
+ * */
 import 'reflect-metadata';
 
 export interface Type<T> extends Function {
@@ -23,7 +26,11 @@ export class Scanner {
 }
 
 export class Injector {
-  // 简化: 1.所有的依赖都是类 2.所有的依赖都是通过构造函数注入
+  /**
+   * Simplification:
+   * 1. All dependencies are classes
+   * 2. All dependencies are injected through the constructor
+   * */
   resolveInstance<T>(InstanceType: Type<T>, modules: Module[]): T {
     const dependentTypes: Type<any>[] =
       Reflect.getMetadata('design:paramtypes', InstanceType) || [];
@@ -72,31 +79,7 @@ export class DI {
   }
 }
 
-class Logger {
-  constructor() {}
-
-  log(message: string) {
-    console.log(message);
-  }
-}
-
-const loggerModule = new Module([Logger], [], [], [Logger]);
-
-// 一旦去掉这个装饰器,Reflect就无法获取到design:paramtypes类型
-const Injectable = () => target => {
+// Only decorated classes can be `getMetadata`
+export const Injectable = () => target => {
   return target;
 };
-
-@Injectable()
-class CatService {
-  constructor(readonly logger: Logger) {}
-
-  async findCat() {
-    return this.logger.log('cat is missing');
-  }
-}
-
-const appModule = new Module([CatService], [CatService], [loggerModule], []);
-
-const di = new DI(appModule);
-di.get(CatService).then(catService => catService.findCat());

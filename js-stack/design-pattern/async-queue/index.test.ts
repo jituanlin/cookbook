@@ -1,6 +1,5 @@
 import {AsyncQueue} from './index';
-
-const TimeOut = async timeout => new Promise(res => setTimeout(res, timeout));
+import {TimeOut} from '../../utils/TimeOut';
 
 const mockRequest = async (a, timeout, isSuccess = true) => {
   await TimeOut(timeout);

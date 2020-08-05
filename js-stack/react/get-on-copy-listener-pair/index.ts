@@ -1,5 +1,6 @@
-import * as R from 'ramda';
-
+/**
+ * Following code is used to get the react listeners of copy event.
+ * */
 const commandKey = 'Meta' as const;
 const controlKey = 'Control' as const;
 const cKey = 'c' as const;
@@ -17,8 +18,8 @@ const getOnCopyListenerPair = (action: () => any): CopyListenerPair => {
 
   return {
     onKeyDown: (event: KeyboardEvent) => {
-      if (R.includes(event.key, [commandKey, controlKey, cKey])) {
-        if (!R.includes(event.key, currentKeydownKeys)) {
+      if ([commandKey, controlKey, cKey].includes(event.key as any)) {
+        if (!currentKeydownKeys.includes(event.key)) {
           currentKeydownKeys.push(event.key);
         }
       }

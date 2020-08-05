@@ -1,29 +1,8 @@
-import * as R from 'ramda';
-
 /**
- * @example
- *
- *
- class Test {
-  @lazySingleton()
-  get studentTest() {
-    console.log('called dao');
-    return Promise.resolve([1, 2, 3]);
-  }
-  async test() {
-    console.log(await this.studentTest);
-  }
-}
- const test = new Test();
- // 'call dao' will just be called one time
- test.test();
- test.test();
- setTimeout(() => {
-  const test1 = new Test();
-  // 'call dao' will just be called one time
-  test1.test();
-  test1.test();
-}, 1000);
+ * This decorator is used to :
+ *  1. make the getter lazy
+ *  2. make the getter become singleton
+ * Useful for certain attributes that it's expensive to init
  * */
 const lazySingleton = () => <Result>(
   target: Object,
@@ -31,12 +10,13 @@ const lazySingleton = () => <Result>(
   descriptor: TypedPropertyDescriptor<Result>
 ) => {
   const originalGetter = descriptor.get;
+  const symbol = Symbol('lazySingleton');
   return {
     get: function (): Result {
-      if (R.isNil(this.$$cache)) {
-        this.$$cache = originalGetter.call(this);
+      if (this[symbol] === undefined) {
+        this[symbol] = originalGetter.call(this);
       }
-      return this.$$cache;
+      return this[symbol];
     },
   };
 };
