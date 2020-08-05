@@ -1,5 +1,4 @@
-import * as _ from 'lodash';
-import * as R from 'ramda';
+import {debounce} from 'lodash';
 
 export default class CallsMerger<Param, Result> {
   private collectedParams: ReadonlyArray<Param>;
@@ -20,14 +19,11 @@ export default class CallsMerger<Param, Result> {
         rejectBatchApiCall = reject;
       }
     );
-    this.debouncedBatchApi = _.debounce(
+    this.debouncedBatchApi = debounce(
       () => {
         batchApi(this.collectedParams)
-          .then((results: ReadonlyArray<Result>) => {
-            resolveBatchApiCall(results);
-            this.init(debounceTime, maxWait, batchApi);
-          })
-          .catch(rejectBatchApiCall);
+          .then(resolveBatchApiCall, rejectBatchApiCall)
+          .finally(() => this.init(debounceTime, maxWait, batchApi));
       },
       debounceTime,
       {
@@ -45,8 +41,8 @@ export default class CallsMerger<Param, Result> {
   }
 
   async callApiSingly(param: Param): Promise<Result> {
-    this.collectedParams = R.append(param, this.collectedParams);
-    const positionInResults = R.length(this.collectedParams) - 1;
+    this.collectedParams = [param, ...this.collectedParams];
+    const positionInResults = this.collectedParams.length - 1;
     this.debouncedBatchApi();
     const results = await this.resultOfBatchApiCall;
     return results[positionInResults];
