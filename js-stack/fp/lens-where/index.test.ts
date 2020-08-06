@@ -1,3 +1,6 @@
+import {lensWhere} from './index';
+import * as R from 'ramda';
+
 const arrayTarget = [
   {studentId: 10563001, score: 40},
   {studentId: 10563002, score: 50},
@@ -12,74 +15,42 @@ const objectTarget = {
 
 const lens = lensWhere(R.propEq('studentId', 10563001));
 
-test(`view with lensWhere should return index/value pair `, () => {
-  expect(R.view(lens, arrayTarget)).toEqual([
-    0,
-    {studentId: 10563001, score: 40},
+test('array: view with lensWhere should return index/value pair of  ', () => {
+  expect(R.view(lens, arrayTarget)).toEqual({studentId: 10563001, score: 40});
+});
+
+test('record: view with lensWhere should return index/value pair ', () => {
+  expect(R.view(lens, objectTarget)).toEqual({studentId: 10563001, score: 40});
+});
+
+test('array: set with lensWhere basic functionality', () => {
+  expect(R.set(lens, {studentId: 10563001, score: 150}, arrayTarget)).toEqual([
+    {studentId: 10563001, score: 150},
+    {studentId: 10563002, score: 50},
+    {studentId: 10563002, score: 60},
   ]);
 });
 
-assert.deepStrictEqual(
-  [
-    {studentId: 10563001, score: 40},
-    {studentId: 10563002, score: 150},
-    {studentId: 10563002, score: 60},
-  ],
-  R.set(lens, [1, {studentId: 10563002, score: 150}], arrayTarget)
-);
+test('record: set with lensWhere basic functionality', () => {
+  expect(R.set(lens, {studentId: 10563001, score: 150}, objectTarget)).toEqual({
+    10563001: {studentId: 10563001, score: 150},
+    10563002: {studentId: 10563002, score: 50},
+    10563003: {studentId: 10563002, score: 60},
+  });
+});
 
-assert.deepStrictEqual(
-  [
-    {studentId: 10563001, score: 50},
+test('array: over with lensWhere basic functionality', () => {
+  expect(R.over(lens, R.set(R.lensProp('score'), 150), arrayTarget)).toEqual([
+    {studentId: 10563001, score: 150},
     {studentId: 10563002, score: 50},
     {studentId: 10563002, score: 60},
-  ],
-  R.over(
-    lens,
-    maybeIndexAndValuePair => {
-      if (R.isNil(maybeIndexAndValuePair)) {
-        return undefined;
-      }
-      return [
-        maybeIndexAndValuePair[0],
-        {
-          ...maybeIndexAndValuePair[1],
-          score: maybeIndexAndValuePair[1].score + 10,
-        },
-      ];
-    },
-    arrayTarget
-  )
-);
+  ]);
+});
 
-assert.deepStrictEqual(
-  [
-    {studentId: 10563001, score: 50},
-    {studentId: 10563002, score: 50},
-    {studentId: 10563002, score: 60},
-  ],
-
-  R.over(lens, overValue(R.over(R.lensProp('score'), R.add(10))), arrayTarget)
-);
-
-assert.deepStrictEqual(
-  ['10563001', {studentId: 10563001, score: 40}],
-  R.view(lens, objectTarget)
-);
-assert.deepStrictEqual(
-  {
-    '10563001': {studentId: 10563001, score: 40},
-    '10563002': {studentId: 10563002, score: 150},
-    '10563003': {studentId: 10563002, score: 60},
-  },
-  R.set(lens, [10563002, {studentId: 10563002, score: 150}], objectTarget)
-);
-
-assert.deepStrictEqual(
-  {
-    '10563001': {studentId: 10563001, score: 50},
-    '10563002': {studentId: 10563002, score: 50},
-    '10563003': {studentId: 10563002, score: 60},
-  },
-  R.over(lens, overValue(R.over(R.lensProp('score'), R.add(10))), objectTarget)
-);
+test('record: over with lensWhere basic functionality', () => {
+  expect(R.over(lens, R.set(R.lensProp('score'), 150), objectTarget)).toEqual({
+    10563001: {studentId: 10563001, score: 150},
+    10563002: {studentId: 10563002, score: 50},
+    10563003: {studentId: 10563002, score: 60},
+  });
+});

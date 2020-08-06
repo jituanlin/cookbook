@@ -1,8 +1,5 @@
 /**
- * This module is a implementation of `Lens Like` of predicate of Array/Record data structure.
- * `Lens Like` means something different from Ramda's original lens:
- *    what getter returns is not a single value, but a tuple of value and index(Array)/key(Record).
- *    Similarly, setter accept a tuple of value and index(Array)/key(Record) rather than a single value.
+ * This module is a implementation of Lens of predicate of Array/Record data structure.
  * @example: See unit test.
  * */
 
@@ -39,54 +36,29 @@ export const getMatchedIndexAndValuePair = <T>(
  * Get lens of array/record by predicate
  * */
 export const lensWhere = <T>(predicate: (elem: T) => boolean): Lens => {
-  const getter = (target: Target<T>): IndexAndValuePairs<T> | undefined => {
+  const getter = (target: Target<T>): T | undefined => {
     const matchedIndexAndValuePair:
       | IndexAndValuePairs<T>
       | undefined = getMatchedIndexAndValuePair(target, predicate);
 
-    return matchedIndexAndValuePair;
+    return matchedIndexAndValuePair?.[1];
   };
 
-  const setter = (
-    maybeIndexAndValuePairs: IndexAndValuePairs<T> | undefined,
-    target: Target<T>
-  ) => {
-    if (R.isNil(maybeIndexAndValuePairs)) {
+  const setter = (value: T, target: Target<T>) => {
+    const matchedIndexAndValuePair:
+      | IndexAndValuePairs<T>
+      | undefined = getMatchedIndexAndValuePair(target, predicate);
+
+    if (R.isNil(matchedIndexAndValuePair)) {
       return target;
     }
 
     const lens = R.is(Array, target)
-      ? R.lensIndex(Number(maybeIndexAndValuePairs[0]))
-      : R.lensProp(maybeIndexAndValuePairs[0]);
+      ? R.lensIndex(Number(matchedIndexAndValuePair[0]))
+      : R.lensProp(matchedIndexAndValuePair[0]);
 
-    return R.set(lens, maybeIndexAndValuePairs[1], target);
+    return R.set(lens, value, target);
   };
 
   return R.lens(getter, setter);
 };
-
-/**
- * Helper to extract index from lens return
- * */
-export const extractIndex = <T>(
-  maybeIndexAndValuePairs: IndexAndValuePairs<T> | undefined
-): string | undefined => maybeIndexAndValuePairs?.[0];
-
-/**
- * Helper to extract value from lens return
- * */
-export const extractValue = <T>(
-  maybeIndexAndValuePairs: IndexAndValuePairs<T> | undefined
-): T | undefined => maybeIndexAndValuePairs?.[1];
-
-/**
- * Helper to `over` value of lens return
- * */
-export const overValue = <T>(fn: (value: T) => T) => (
-  maybeIndexAndValuePairs: IndexAndValuePairs<T> | undefined
-): IndexAndValuePairs<T> | undefined =>
-  R.when(
-    R.complement(R.isNil),
-    R.over(R.lensIndex(1), fn),
-    maybeIndexAndValuePairs
-  );
