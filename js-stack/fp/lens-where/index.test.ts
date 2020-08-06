@@ -1,7 +1,3 @@
-import * as R from 'ramda';
-import lensWhere, {overValue} from './lensWhere';
-import * as assert from 'assert';
-
 const arrayTarget = [
   {studentId: 10563001, score: 40},
   {studentId: 10563002, score: 50},
@@ -16,10 +12,12 @@ const objectTarget = {
 
 const lens = lensWhere(R.propEq('studentId', 10563001));
 
-assert.deepStrictEqual(
-  [0, {studentId: 10563001, score: 40}],
-  R.view(lens, arrayTarget)
-);
+test(`view with lensWhere should return index/value pair `, () => {
+  expect(R.view(lens, arrayTarget)).toEqual([
+    0,
+    {studentId: 10563001, score: 40},
+  ]);
+});
 
 assert.deepStrictEqual(
   [

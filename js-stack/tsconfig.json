@@ -3,11 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {"*": ["types/*"]},
-    "lib": [
-      "es2015",
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2015", "es2017", "dom", "es2019"],
     "target": "es2017",
     "module": "commonjs",
     "strict": false,
