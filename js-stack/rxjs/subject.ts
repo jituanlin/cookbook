@@ -2,7 +2,7 @@ import {from, Observable, Subject} from 'rxjs';
 import {multicast} from 'rxjs/operators';
 
 /**
- * Subject is observable and observe
+ * Subject is observable and observer
  * */
 
 //subject is observable
@@ -10,20 +10,19 @@ const subject1 = new Subject();
 subject1.subscribe(n => console.log(n));
 subject1.next(1);
 
-//subject is observe
+//subject is observer
 const subject2 = new Subject();
 subject2.subscribe(n => console.log(n));
 const observable1 = from([1, 2, 3]);
 observable1.subscribe(subject2);
 
-/* --- */
-
 /**
- * `normal` observable execution context is isolated,
- * but there is two way to change a observable to share execution context
+ * `normal` observable 's execution context is isolated,
+ * but there is two ways to make a observable share execution context:
+ *  1. subscribe a observable by a subject
+ *  2. multicast it
  * */
 
-// output two different number
 const observable2 = new Observable(subscriber => {
   subscriber.next(Math.random());
   subscriber.complete();
@@ -31,18 +30,15 @@ const observable2 = new Observable(subscriber => {
 observable2.subscribe(n => console.log(n));
 observable2.subscribe(n => console.log(n));
 
-// first way: subscribe a observable by a subject
-// output two same number
 const observable3 = new Observable(subscriber => {
   subscriber.next(Math.random());
   subscriber.complete();
 });
 const subject3 = new Subject();
-subject3.subscribe(n => console.log(n));
+subject3.subscribe(n => console.log(n)); // output two same number
 subject3.subscribe(n => console.log(n));
 observable3.subscribe(subject3);
 
-// second way: multicast it
 const observable4 = new Observable(subscriber => {
   subscriber.next(Math.random());
   subscriber.complete();
@@ -51,13 +47,10 @@ const subject4 = new Subject();
 const multicasted = observable4.pipe(multicast(subject4));
 multicasted.subscribe(n => console.log(n));
 multicasted.subscribe(n => console.log(n));
-// @ts-ignore
-multicasted.connect();
-
-/* --- */
+(multicasted as any).connect();
 
 /**
- * re implement Observable and Subject
+ * reimplement Observable and Subject
  * */
 
 interface Observe_<T> {
@@ -136,5 +129,3 @@ const multicasted11 = multicast11(observable13, subject13);
 multicasted11.subscribe({next: n => console.log(n)});
 multicasted11.subscribe({next: n => console.log(n)});
 multicasted11.connect();
-
-/* --- */

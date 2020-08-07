@@ -45,13 +45,6 @@ const S3 = () => source$.pipe(audit(() => timer(2002))).subscribe(console.log);
  * */
 const S4 = () => source$.pipe(audit(() => timer(1800))).subscribe(console.log);
 
-/**
- * OK, the `timer` in nodejs mean:
- * `at least time pass`,
- * the extra delay depend on event loop status;
- * let us choose more clear time interval to avoid confuse case
- * */
-
 const source2$ = interval(100);
 
 /**
@@ -61,6 +54,5 @@ const S5 = () => source2$.pipe(audit(() => timer(1000))).subscribe(console.log);
 
 /**
  * output: 9 19 29 39 ...
- * same as S5
  * */
 const S6 = () => source2$.pipe(auditTime(1000)).subscribe(console.log);

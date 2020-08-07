@@ -1,10 +1,6 @@
 /**
- * Metaphor: Pair love birds, love birds need to always be together.
- *
- * Core: Combine by zip(compare to *combineLatest*),
- * result observable emit value from each
- * input observable aligned.
- *
+ * Combine by zip(compare to *combineLatest*),
+ * result observable emit value from each input observable aligned.
  * */
 
 import {interval, zip} from 'rxjs';
