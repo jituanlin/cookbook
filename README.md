@@ -9,4 +9,4 @@ List of content:
 - [fp-ts HKT example](https://github.com/jituanlin/cookbook/blob/master/js-stack/js/sequence-record-of-promises/fp-ts-veriosn-implementation.ts)
 - [fp-ts example](https://github.com/jituanlin/cookbook/tree/master/js-stack/fp-ts)
 
-... more on project
+... more in the project
