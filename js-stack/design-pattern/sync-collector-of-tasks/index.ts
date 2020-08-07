@@ -1,30 +1,14 @@
+/**
+ * SyncCollectorOfTasks will collect all calls in current synchronous execution context.
+ * @example see unit test.
+ * */
+
 import {isEqual, findIndex} from 'lodash';
-
-class StackWithMaxSize<T> {
-  constructor(private readonly maxSize: number, private state: T[] = []) {}
-
-  push(...values: T[]): StackWithMaxSize<T> {
-    const state = [...values, ...this.state].slice(0, this.maxSize);
-    return new StackWithMaxSize(this.maxSize, state);
-  }
-
-  find(predicate: (x: T) => boolean): T {
-    return this.state.find(predicate);
-  }
-}
-
-class ResponseCache<P, R> {
-  constructor(readonly params: P, readonly response: R) {}
-}
 
 // use object reference as unique identity
 const NOT_HIT_CACHE = {marking: 'ISJKJI<ZLIJI<:P'} as const;
 type NotHitCache = typeof NOT_HIT_CACHE;
 
-/**
- * SyncCollectorOfTasks will collect all calls in current synchronous execution context.
- * @example see unit test.
- * */
 export default class SyncCollectorOfTasks<T, R> {
   private cache: StackWithMaxSize<ResponseCache<T, R>>;
   private collectedParams: T[];
@@ -142,4 +126,21 @@ export default class SyncCollectorOfTasks<T, R> {
     }
     return resultFromNewScheduledTask;
   }
+}
+
+class StackWithMaxSize<T> {
+  constructor(private readonly maxSize: number, private state: T[] = []) {}
+
+  push(...values: T[]): StackWithMaxSize<T> {
+    const state = [...values, ...this.state].slice(0, this.maxSize);
+    return new StackWithMaxSize(this.maxSize, state);
+  }
+
+  find(predicate: (x: T) => boolean): T {
+    return this.state.find(predicate);
+  }
+}
+
+class ResponseCache<P, R> {
+  constructor(readonly params: P, readonly response: R) {}
 }
