@@ -1,14 +1,6 @@
 import CallsMerger from './index';
 import {TimeOut} from '../../utils/TimeOut';
-
-const APIUtils = () => {
-  const tracker: number[] = [];
-  const api = async (xs: number[]) => {
-    xs.forEach(x => tracker.push(x));
-    return xs;
-  };
-  return [tracker, api] as const;
-};
+import {APIUtils} from '../../utils/APIUtils';
 
 test('should CallMerger merge all calls in the interval', async () => {
   const [tracker, api] = APIUtils();

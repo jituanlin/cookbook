@@ -1,5 +1,5 @@
 /**
- * This module is a implementation of Lens of predicate of Array/Record data structure.
+ * This module is a implementation of predicate Lens for Array/Record data structure.
  * @example: See unit test.
  * */
 
@@ -10,7 +10,7 @@ type Target<T> = ReadonlyArray<T> | Record<string, T>;
 type IndexAndValuePairs<T> = [string, T];
 
 /**
- * Used to find the matched [index,value] in array or record
+ * Used to find the matched [index,value] in array or record.
  * */
 export const getMatchedIndexAndValuePair = <T>(
   target: Target<T>,
@@ -33,7 +33,7 @@ export const getMatchedIndexAndValuePair = <T>(
 };
 
 /**
- * Get lens of array/record by predicate
+ * Get lens of array/record by predicate.
  * */
 export const lensWhere = <T>(predicate: (elem: T) => boolean): Lens => {
   const getter = (target: Target<T>): T | undefined => {
