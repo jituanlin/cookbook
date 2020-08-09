@@ -1,25 +1,23 @@
 package exercise413
 
-trait Option[+A] {
-  def map[B](f: A => B): Option[B]
-  def flatMap[B](f: A => Option[B]): Option[B]
-  def getOrElse[B >: A](default: => B): B
-  def orElse[B >: A](ob: => Option[B]): Option[B]
-  def filter(f: A => Boolean): Option[A]
-}
+import java.util.regex.{Pattern, PatternSyntaxException}
 
-case class Some[+A](value: A) extends Option[A] {
-  def map[B](f: A => B): Option[B] = new Some(f(value))
-  def flatMap[B](f: A => Option[B]): Option[B] = f(value)
-  def getOrElse[B >: A](default: => B): B = value
-  def orElse[B >: A](ob: => Option[B]): Option[B] = this
-  def filter(f: A => Boolean): Option[A] = if (f(value)) this else new None()
-}
 
-case class None[+A]() extends Option[A] {
-  def map[B](f: A => B): Option[B] = new None()
-  def flatMap[B](f: A => Option[B]): Option[B] = new None[B]()
-  def getOrElse[B >: A](default: => B): B = default
-  def orElse[B >: A](ob: => Option[B]): Option[B] = ob
-  def filter(f: A => Boolean): Option[A] = new None[A]()
+object option {
+  def map2[A, B, C](oa: Option[A], ob: Option[B])(ab2c: (A, B) => C) = for {
+    a <- oa
+    b <- ob
+  } yield ab2c(a, b)
+
+  def pattern(ps: String): Option[Pattern] = {
+    try {
+      Some(Pattern.compile(ps))
+    } catch {
+      case e: PatternSyntaxException => None
+    }
+  }
+
+  def bothMatch(pa: Pattern, pb: Pattern, s: String): Boolean = pa.matcher(s).matches() && pb.matcher(s).matches()
+
+  def bothMatch2(psa: String, psb: String, s: String): Option[Boolean] = map2(pattern(psa), pattern(psb))((pa, pb) => bothMatch(pa, pb, s))
 }
