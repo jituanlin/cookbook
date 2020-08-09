@@ -1,5 +1,6 @@
 {
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@types/jest": "^26.0.3",
     "@types/lodash": "^4.14.144",
@@ -27,7 +28,8 @@
     "typescript": "^3.9.6",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "monocle-ts": "^2.3.3"
   },
   "scripts": {
     "pretty": "prettier --write \"./**/*.{js,jsx,json,ts}\" \"!build/**\""
