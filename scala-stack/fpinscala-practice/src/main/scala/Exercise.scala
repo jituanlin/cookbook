@@ -1,9 +1,9 @@
-package exercise413
+package exercise
 
 import java.util.regex.{Pattern, PatternSyntaxException}
 
 
-object option {
+object answer {
   def map2[A, B, C](oa: Option[A], ob: Option[B])(ab2c: (A, B) => C) = for {
     a <- oa
     b <- ob

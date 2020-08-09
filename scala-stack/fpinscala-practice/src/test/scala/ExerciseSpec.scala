@@ -1,12 +1,12 @@
-package exercise413test
+package ExercisetSpec
 
 import org.scalatest.flatspec.AnyFlatSpec
-import exercise413.option
+import exercise.answer
 
 
-class Exercise431tSpec extends AnyFlatSpec {
+class ExercisetSpec extends AnyFlatSpec {
   "basic functionality" should "work" in {
-    val isMatchedOpt = option.bothMatch2("[ab]", "[bc]", "b")
+    val isMatchedOpt = answer.bothMatch2("[ab]", "[bc]", "b")
     for {
       isMatched <- isMatchedOpt
     } assert(isMatched)
