@@ -6,12 +6,12 @@ import exercise.answer
 
 class ExerciseSpec extends AnyFlatSpec {
   "basic functionality" should "work" in {
-    val someXs = answer.sequence(List[Option[Number]](Some(1), Some(2), Some(3)))
+    val someXs = answer.traver(List(1, 2, 3))(n => if (n > 0) Some(n) else None)
     for {
       xs <- someXs
-    } assert(xs.size === 3)
+    } assert(xs.size === 3 && xs.head === 1)
 
-    val noneXs = answer.sequence(List[Option[Number]](Some(1), None))
+    val noneXs = answer.traver(List(1, 2, -3))(n => if (n > 0) Some(n) else None)
     assert(noneXs === None)
   }
 }

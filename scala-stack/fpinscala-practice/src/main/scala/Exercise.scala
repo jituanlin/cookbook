@@ -4,10 +4,10 @@ import java.util.regex.{Pattern, PatternSyntaxException}
 
 
 object answer {
-  def sequence[A](xs: List[Option[A]]): Option[List[A]] = xs.foldLeft(Option(List[A]()))(
-    (optXs, optX) => for {
+  def traver[A](xs: List[A])(f: A => Option[A]): Option[List[A]] = xs.foldLeft(Option(List[A]()))(
+    (optXs, x) => for {
       xs <- optXs
-      x <- optX
-    } yield xs.appended(x)
+      r <- f(x)
+    } yield xs.appended(r)
   )
 }
