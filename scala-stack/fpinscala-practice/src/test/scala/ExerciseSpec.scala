@@ -4,7 +4,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 import exercise.answer
 
 
-class ExercisetSpec extends AnyFlatSpec {
+class ExerciseSpec extends AnyFlatSpec {
   "basic functionality" should "work" in {
     val isMatchedOpt = answer.bothMatch2("[ab]", "[bc]", "b")
     for {
