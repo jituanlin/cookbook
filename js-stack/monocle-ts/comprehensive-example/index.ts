@@ -59,3 +59,12 @@ export const optionalDate: optics.Optional<Movie, Date> = optics.Lens.fromProp<
 );
 
 export const getSecondFavoriteMovie = optics.index.indexArray<Movie>().index(1);
+
+// treat lens as [A]
+export const foldName = lensName.asFold();
+
+export const foldTags = optics
+  .fromTraversable(fp.array.array)<Movie>()
+  .composeLens(optics.Lens.fromProp<Movie>()('tags'))
+  .composeTraversal(optics.fromTraversable(fp.array.array)<string>())
+  .asFold();

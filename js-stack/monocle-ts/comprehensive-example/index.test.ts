@@ -1,5 +1,7 @@
 import * as fp from 'fp-ts';
 import {
+  foldName,
+  foldTags,
   getSecondFavoriteMovie,
   isoMovies,
   lensName,
@@ -78,4 +80,24 @@ test('getSecondFavoriteMovie', () => {
   expect(getSecondFavoriteMovie.getOption(myFavoriteMovies)).toEqual(
     fp.option.some(myFavoriteMovies[1])
   );
+});
+
+test('foldName', () => {
+  expect(foldName.getAll(myFavoriteMovies[0])).toEqual(['1917']);
+});
+
+test('(foldTags.exist', () => {
+  expect(foldTags.exist(tag => tag === 'history')(myFavoriteMovies)).toBe(true);
+  expect(foldTags.exist(tag => tag === 'history')([myFavoriteMovies[0]])).toBe(
+    false
+  );
+});
+
+test('foldTags.getAll', () => {
+  expect(foldTags.getAll(myFavoriteMovies)).toEqual(['war', 'history']);
+});
+
+test('oldTags.all', () => {
+  expect(foldTags.all(str => str !== '')(myFavoriteMovies)).toBe(true);
+  expect(foldTags.all(str => str === '')(myFavoriteMovies)).toBe(false);
 });
