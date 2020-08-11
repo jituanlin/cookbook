@@ -13,5 +13,7 @@ class ExerciseSpec extends AnyFlatSpec {
       case Left(n) => assert(n === 1)
     }
     right2.map(v2 => assert(v2 === 2))
+
+
   }
 }
