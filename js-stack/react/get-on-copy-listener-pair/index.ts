@@ -1,5 +1,5 @@
 /**
- * Following code is used to get the react listeners of copy event.
+ * The following code is used to get the react listeners of copy event.
  * */
 const commandKey = 'Meta' as const;
 const controlKey = 'Control' as const;

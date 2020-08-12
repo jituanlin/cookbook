@@ -1,5 +1,5 @@
 /**
- * Following code is a comprehensive example of monocle-ts.
+ * The following code is a comprehensive example of monocle-ts.
  * For more information, please see [this blog](https://jituanlin.github.io/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/2020-08-09-monocle-ts-%E8%A1%A5%E5%85%85%E6%96%87%E6%A1%A3/)
  * */
 
