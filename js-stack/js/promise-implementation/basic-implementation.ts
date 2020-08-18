@@ -1,3 +1,22 @@
+/**
+ * The following code is a basic implementation of JS 's `PromiseA+` specification.
+ * The core logic is:
+ *  1. Store state('Pending', 'Resolved', 'Rejected') in `state` property required for `await`.
+ *  2. Use handlers to collect all [onResolved, onRejected] passed to `then`. It's required to call `then`
+ *  multiple times on one `Promise`.
+ *  3. `executor` passed by constructor is the key point for the `Promise` creator to notify
+ *  what time the `Promise` state should be changed and handler should be called.
+ *  4. `handler` should be call asynchronously.
+ *  5. What `then` need to do is dependent on which state `Promise` in:
+ *    - `Pending`: store handler.
+ *    - `Resolved`: call `onResolved` with `this.value`.
+ *    - `Rejected`: call `onRejected` with `this.reason`.
+ *  and new Promise should be return.
+ *  6. whenever a `Promise` be `catch`, a resolved promise should be return.
+ *  7. Only when `Promise` in `Pending` state can it change it's state to `Resolved`/`Reject`
+ *   and call `handlers`. It 's required for ensure when call `resolve`/`reject` after another `resolve`/`reject`
+ *   in constructor only the first call is respected.
+ * */
 export enum States {
   Pending = 'Pending',
   Resolved = 'Resolved',
@@ -24,19 +43,23 @@ export class PromiseA<A> {
   private handlers: Handlers<A>[] = [];
 
   private setAsResolved(value: A) {
-    this.value = value;
-    this.state = States.Resolved;
-    process.nextTick(() =>
-      this.handlers.forEach(({onResolved}) => onResolved(value))
-    );
+    if (this.state === States.Pending) {
+      this.value = value;
+      this.state = States.Resolved;
+      process.nextTick(() =>
+        this.handlers.forEach(({onResolved}) => onResolved(value))
+      );
+    }
   }
 
   private setAsRejected(reason: unknown) {
-    this.reason = reason;
-    this.state = States.Rejected;
-    process.nextTick(() =>
-      this.handlers.forEach(({onReject}) => onReject(reason))
-    );
+    if (this.state === States.Pending) {
+      this.reason = reason;
+      this.state = States.Rejected;
+      process.nextTick(() =>
+        this.handlers.forEach(({onReject}) => onReject(reason))
+      );
+    }
   }
 
   constructor(
@@ -45,12 +68,10 @@ export class PromiseA<A> {
       reject: (reason: unknown) => void
     ) => void
   ) {
-    if (this.state === States.Pending) {
-      try {
-        executor(this.setAsResolved.bind(this), this.setAsRejected.bind(this));
-      } catch (error) {
-        this.setAsRejected(error);
-      }
+    try {
+      executor(this.setAsResolved.bind(this), this.setAsRejected.bind(this));
+    } catch (error) {
+      this.setAsRejected(error);
     }
   }
 
