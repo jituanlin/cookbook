@@ -80,6 +80,6 @@ export class DI {
 }
 
 // Only decorated classes can be `getMetadata`
-export const Injectable = () => target => {
+export const Injectable = () => (target: any) => {
   return target;
 };

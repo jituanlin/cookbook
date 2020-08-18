@@ -26,7 +26,7 @@ export const getMatchedIndexAndValuePair = <T>(
   )(target);
 
   const matchedIndexAndValuePair = R.find<IndexAndValuePairs<T>>(
-    R.pipe(R.nth(1), predicate)
+    R.pipe(R.nth(1) as any, predicate)
   )(indexAndValuePairs);
 
   return matchedIndexAndValuePair;
@@ -60,5 +60,5 @@ export const lensWhere = <T>(predicate: (elem: T) => boolean): Lens => {
     return R.set(lens, value, target);
   };
 
-  return R.lens(getter, setter);
+  return R.lens(getter as any, setter);
 };

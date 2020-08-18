@@ -25,18 +25,20 @@ const objectTargetV2 = {
   10563003: {studentId: 10563003, score: 60},
 };
 
-test('TraversalScore', () => {
-  expect(
-    TraversalScore(fp.array.array)(10563002).set(150)(arrayTarget)
-  ).toEqual(arrayTargetV2);
+describe('monocle-ts/implement-of-lens-where-with-monocle-ts', () => {
+  test('TraversalScore', () => {
+    expect(
+      TraversalScore(fp.array.array)(10563002).set(150)(arrayTarget)
+    ).toEqual(arrayTargetV2);
 
-  expect(
-    TraversalScore(fp.record.record)(10563002).set(150)(objectTarget)
-  ).toEqual(objectTargetV2);
-});
+    expect(
+      TraversalScore(fp.record.record)(10563002).set(150)(objectTarget)
+    ).toEqual(objectTargetV2);
+  });
 
-test('getOptionScore', () => {
-  expect(getOptionScore(fp.array.array)(10563002)(arrayTarget)).toEqual(
-    fp.option.some(arrayTarget[1].score)
-  );
+  test('getOptionScore', () => {
+    expect(getOptionScore(fp.array.array)(10563002)(arrayTarget)).toEqual(
+      fp.option.some(arrayTarget[1].score)
+    );
+  });
 });

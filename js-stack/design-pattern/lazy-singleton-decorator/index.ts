@@ -5,6 +5,7 @@
  * Useful for certain attributes that it's expensive to init
  * */
 const lazySingleton = () => <Result>(
+  // eslint-disable-next-line @typescript-eslint/ban-types
   target: Object,
   propertyKey: string | symbol,
   descriptor: TypedPropertyDescriptor<Result>
@@ -14,7 +15,7 @@ const lazySingleton = () => <Result>(
   return {
     get: function (): Result {
       if (this[symbol] === undefined) {
-        this[symbol] = originalGetter.call(this);
+        this[symbol] = originalGetter!.call(this);
       }
       return this[symbol];
     },

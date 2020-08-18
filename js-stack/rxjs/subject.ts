@@ -58,9 +58,11 @@ interface Observe_<T> {
   next: (v: T) => void;
   error?: (e: Error) => void;
 }
+
 interface Subscription_ {
   unSubscribe: () => void;
 }
+
 interface Subscribable_<T> {
   subscribe: (ob: Observe_<T>) => Subscription_;
 }
@@ -73,6 +75,7 @@ class Observable_<T> implements Subscribable_<T> {
   constructor(
     private readonly producer: (observe: Observe_<T>) => Subscription_
   ) {}
+
   subscribe(ob: Observe_<T>) {
     const subscription = this.producer(ob);
     return subscription;
@@ -90,6 +93,7 @@ observable11.subscribe({
 
 class Subject_<T> implements Observe_<T>, Subscribable_<T> {
   private observers: Observe_<T>[] = [];
+
   subscribe(ob: Observe_<T>): Subscription_ {
     const idx = this.observers.push(ob);
     return {
@@ -98,6 +102,7 @@ class Subject_<T> implements Observe_<T>, Subscribable_<T> {
       },
     };
   }
+
   next(v) {
     this.observers.forEach(ob => ob.next(v));
   }

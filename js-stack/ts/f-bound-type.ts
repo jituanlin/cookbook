@@ -6,6 +6,7 @@ export class A {
 
 export class B extends A {
   private n = 42;
+
   f1() {
     /**
      * The this.f return value of `this` type.

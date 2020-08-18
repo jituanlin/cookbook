@@ -9,7 +9,7 @@ export const leftJoin = <A, B, C>(
     const abs: [A, B][] = recordsB
       .filter(b => predicate(a, b))
       .map(b => [a, b]);
-    return abs.length === 0 ? [[a, undefined]] : abs;
+    return abs.length === 0 ? ([[a, undefined]] as any) : abs;
   });
   return matchedABPairs.map(([a, b]) => mergeBy(a, b));
 };

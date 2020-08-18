@@ -45,59 +45,67 @@ const idToMovie = {
   },
 };
 
-test('lensName', () => {
-  expect(lensName.get(myFavoriteMovies[0])).toBe(myFavoriteMovies[0].name);
-  expect(lensName.set('1917(2020)')(myFavoriteMovies[0])).toEqual({
-    ...myFavoriteMovies[0],
-    name: '1917(2020)',
+describe('monocle-ts/comprehensive-example', () => {
+  test('lensName', () => {
+    expect(lensName.get(myFavoriteMovies[0])).toBe(myFavoriteMovies[0].name);
+    expect(lensName.set('1917(2020)')(myFavoriteMovies[0])).toEqual({
+      ...myFavoriteMovies[0],
+      name: '1917(2020)',
+    });
   });
-});
 
-test('optionalRating', () => {
-  expect(optionalRating.getOption(myFavoriteMovies[1])).toEqual(fp.option.none);
-});
-
-test('isoMovies', () => {
-  expect(isoMovies.get(myFavoriteMovies)).toEqual(idToMovie);
-  expect(isoMovies.reverseGet(idToMovie)).toEqual(myFavoriteMovies);
-});
-
-test('traversalTags', () => {
-  expect(traversalTags.modify(tag => `[${tag}]`)(myFavoriteMovies[0])).toEqual({
-    ...myFavoriteMovies[0],
-    tags: myFavoriteMovies[0].tags.map(tag => `[${tag}]`),
+  test('optionalRating', () => {
+    expect(optionalRating.getOption(myFavoriteMovies[1])).toEqual(
+      fp.option.none
+    );
   });
-});
 
-test('optionalDate', () => {
-  expect(optionalDate.getOption(myFavoriteMovies[0])).toEqual(fp.option.none);
-  expect(optionalDate.getOption(myFavoriteMovies[1])).toEqual(
-    fp.option.some(new Date(myFavoriteMovies[1].releaseTimeText))
-  );
-});
+  test('isoMovies', () => {
+    expect(isoMovies.get(myFavoriteMovies)).toEqual(idToMovie);
+    expect(isoMovies.reverseGet(idToMovie)).toEqual(myFavoriteMovies);
+  });
 
-test('getSecondFavoriteMovie', () => {
-  expect(getSecondFavoriteMovie.getOption(myFavoriteMovies)).toEqual(
-    fp.option.some(myFavoriteMovies[1])
-  );
-});
+  test('traversalTags', () => {
+    expect(
+      traversalTags.modify(tag => `[${tag}]`)(myFavoriteMovies[0])
+    ).toEqual({
+      ...myFavoriteMovies[0],
+      tags: myFavoriteMovies[0].tags.map(tag => `[${tag}]`),
+    });
+  });
 
-test('foldName', () => {
-  expect(foldName.getAll(myFavoriteMovies[0])).toEqual(['1917']);
-});
+  test('optionalDate', () => {
+    expect(optionalDate.getOption(myFavoriteMovies[0])).toEqual(fp.option.none);
+    expect(optionalDate.getOption(myFavoriteMovies[1])).toEqual(
+      fp.option.some(new Date(myFavoriteMovies[1].releaseTimeText))
+    );
+  });
 
-test('(foldTags.exist', () => {
-  expect(foldTags.exist(tag => tag === 'history')(myFavoriteMovies)).toBe(true);
-  expect(foldTags.exist(tag => tag === 'history')([myFavoriteMovies[0]])).toBe(
-    false
-  );
-});
+  test('getSecondFavoriteMovie', () => {
+    expect(getSecondFavoriteMovie.getOption(myFavoriteMovies)).toEqual(
+      fp.option.some(myFavoriteMovies[1])
+    );
+  });
 
-test('foldTags.getAll', () => {
-  expect(foldTags.getAll(myFavoriteMovies)).toEqual(['war', 'history']);
-});
+  test('foldName', () => {
+    expect(foldName.getAll(myFavoriteMovies[0])).toEqual(['1917']);
+  });
 
-test('oldTags.all', () => {
-  expect(foldTags.all(str => str !== '')(myFavoriteMovies)).toBe(true);
-  expect(foldTags.all(str => str === '')(myFavoriteMovies)).toBe(false);
+  test('(foldTags.exist', () => {
+    expect(foldTags.exist(tag => tag === 'history')(myFavoriteMovies)).toBe(
+      true
+    );
+    expect(
+      foldTags.exist(tag => tag === 'history')([myFavoriteMovies[0]])
+    ).toBe(false);
+  });
+
+  test('foldTags.getAll', () => {
+    expect(foldTags.getAll(myFavoriteMovies)).toEqual(['war', 'history']);
+  });
+
+  test('oldTags.all', () => {
+    expect(foldTags.all(str => str !== '')(myFavoriteMovies)).toBe(true);
+    expect(foldTags.all(str => str === '')(myFavoriteMovies)).toBe(false);
+  });
 });

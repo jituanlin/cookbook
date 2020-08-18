@@ -1,6 +1,6 @@
 const obj = {};
 
-obj[Symbol.iterator] = () => {
+(obj as any)[Symbol.iterator] = () => {
   let idx = 0;
   return {
     next() {
@@ -15,7 +15,6 @@ obj[Symbol.iterator] = () => {
   };
 };
 
-// @ts-ignore
-for (const v of obj) {
+for (const v of obj as any) {
   console.log(v);
 }

@@ -1,7 +1,7 @@
 /**
  * */
-import {interval, timer} from 'rxjs';
-import {concatMap, mapTo, mergeMap, switchMap, take} from 'rxjs/operators';
+import {interval} from 'rxjs';
+import {concatMap, mergeMap, switchMap, take} from 'rxjs/operators';
 
 const source$ = interval(1000);
 

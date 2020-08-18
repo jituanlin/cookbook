@@ -3,7 +3,7 @@
  * @example see unit test.
  * */
 
-import {isEqual, findIndex} from 'lodash';
+import {findIndex, isEqual} from 'lodash';
 
 // use object reference as unique identity
 const NOT_HIT_CACHE = {marking: 'ISJKJI<ZLIJI<:P'} as const;
@@ -23,6 +23,30 @@ export default class SyncCollectorOfTasks<T, R> {
     this.action = action;
     this.cache = new StackWithMaxSize(cacheSize);
     this.bindCollectedParamsAndActionPromise();
+  }
+
+  async getResultFor(queryParams: T, withCache = false): Promise<R> {
+    if (withCache) {
+      const resultFromCache = await this.getResultFromCacheOrScheduledTask(
+        queryParams
+      );
+      if (resultFromCache !== NOT_HIT_CACHE) {
+        return resultFromCache as R;
+      }
+    }
+
+    if (this.collectedParams.length === 0) {
+      this.runActionNextEventLoop();
+    }
+
+    const resultFromNewScheduledTask = await this.scheduleTaskAndReturnResult(
+      queryParams
+    );
+
+    if (withCache) {
+      this.pushCache({queryParams, result: resultFromNewScheduledTask});
+    }
+    return resultFromNewScheduledTask;
   }
 
   private bindCollectedParamsAndActionPromise() {
@@ -101,30 +125,6 @@ export default class SyncCollectorOfTasks<T, R> {
         this.rejectActionPromise(error);
       }
     }, 0);
-  }
-
-  async getResultFor(queryParams: T, withCache = false): Promise<R> {
-    if (withCache) {
-      const resultFromCache = await this.getResultFromCacheOrScheduledTask(
-        queryParams
-      );
-      if (resultFromCache !== NOT_HIT_CACHE) {
-        return resultFromCache as R;
-      }
-    }
-
-    if (this.collectedParams.length === 0) {
-      this.runActionNextEventLoop();
-    }
-
-    const resultFromNewScheduledTask = await this.scheduleTaskAndReturnResult(
-      queryParams
-    );
-
-    if (withCache) {
-      this.pushCache({queryParams, result: resultFromNewScheduledTask});
-    }
-    return resultFromNewScheduledTask;
   }
 }
 

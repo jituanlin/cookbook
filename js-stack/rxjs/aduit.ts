@@ -1,5 +1,5 @@
 import {interval, timer} from 'rxjs';
-import {audit, auditTime, timeout} from 'rxjs/operators';
+import {audit, auditTime} from 'rxjs/operators';
 
 const source$ = interval(1000);
 

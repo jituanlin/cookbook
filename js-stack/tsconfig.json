@@ -2,12 +2,21 @@
   "compileOnSave": true,
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {"*": ["types/*"]},
-    "lib": ["es2015", "es2017", "dom", "es2019"],
+    "paths": {
+      "*": [
+        "types/*"
+      ]
+    },
+    "lib": [
+      "es2015",
+      "es2017",
+      "dom",
+      "es2019"
+    ],
     "target": "es2017",
     "module": "commonjs",
-    "strict": false,
-    "noImplicitAny": false,
+    "strict": true,
+    "noImplicitAny": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "charset": "utf8",
@@ -26,7 +35,8 @@
     "skipDefaultLibCheck": true,
     "inlineSourceMap": true,
     "importHelpers": false,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strictFunctionTypes": false
   },
   "exclude": [
     "node_modules*",

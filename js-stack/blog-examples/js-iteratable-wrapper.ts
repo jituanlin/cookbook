@@ -23,6 +23,7 @@ class DataContainer {
     };
   }
 }
+
 const dataContainer = new DataContainer([1, 2, 3, 4]);
 for (const x of dataContainer) {
   for (const y of dataContainer) {

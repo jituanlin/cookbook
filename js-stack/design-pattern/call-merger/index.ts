@@ -1,4 +1,5 @@
 import {debounce} from 'lodash';
+
 /**
  * CallMerger is used to merge multiple API calls in a certain time interval into a batch version of API call.
  * */
@@ -6,6 +7,22 @@ export default class CallsMerger<Param, Result> {
   private collectedParams: ReadonlyArray<Param>;
   private resultOfBatchApiCall: Promise<ReadonlyArray<Result>>;
   private debouncedBatchApi: () => void;
+
+  constructor(
+    debounceTime: number,
+    maxWait: number,
+    batchApi: (params: ReadonlyArray<Param>) => Promise<ReadonlyArray<Result>>
+  ) {
+    this.init(debounceTime, maxWait, batchApi);
+  }
+
+  async callApiSingly(param: Param): Promise<Result> {
+    this.collectedParams = [...this.collectedParams, param];
+    const positionInResults = this.collectedParams.length - 1;
+    this.debouncedBatchApi();
+    const results = await this.resultOfBatchApiCall;
+    return results[positionInResults];
+  }
 
   private init(
     debounceTime: number,
@@ -32,21 +49,5 @@ export default class CallsMerger<Param, Result> {
         maxWait,
       }
     );
-  }
-
-  constructor(
-    debounceTime: number,
-    maxWait: number,
-    batchApi: (params: ReadonlyArray<Param>) => Promise<ReadonlyArray<Result>>
-  ) {
-    this.init(debounceTime, maxWait, batchApi);
-  }
-
-  async callApiSingly(param: Param): Promise<Result> {
-    this.collectedParams = [...this.collectedParams, param];
-    const positionInResults = this.collectedParams.length - 1;
-    this.debouncedBatchApi();
-    const results = await this.resultOfBatchApiCall;
-    return results[positionInResults];
   }
 }
