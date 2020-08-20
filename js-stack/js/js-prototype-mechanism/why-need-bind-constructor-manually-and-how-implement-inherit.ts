@@ -1,4 +1,6 @@
 /**
+ * We say class(constructor function) `A` is inherit another class `B` if:
+ *  > A.prototype directly or indirectly link to B.prototype.
  * When declare a constructor function, js will create a object from `Object.create`
  * as constructor function 's `prototype`, and set this `prototype` 's `constructor`
  * to constructor function itself.
