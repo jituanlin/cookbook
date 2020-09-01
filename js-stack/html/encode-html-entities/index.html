@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    // `encodedStr` converts potentially unsafe characters to their HTML-encoded equivalent.
+    const encodedStr = rawStr =>
+      rawStr.replace(/[\u00A0-\u9999<>\&]/gim, function (i) {
+        return '&#' + i.charCodeAt(0) + ';';
+      });
+
+    // Browser will display it properly rather than execute it.
+    document.getElementById('root').innerHTML = encodedStr(
+      `<script type="text/javascript"> function doSomethingEvil() { /* ... */ } <\/script>`
+    );
+  </script>
+</html>
