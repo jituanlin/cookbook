@@ -103,7 +103,7 @@ class Subject_<T> implements Observe_<T>, Subscribable_<T> {
     };
   }
 
-  next(v) {
+  next(v: T) {
     this.observers.forEach(ob => ob.next(v));
   }
 }
