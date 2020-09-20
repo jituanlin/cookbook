@@ -127,7 +127,6 @@ export const modifyLessonName2 = (getLessonName: (lesson: Lesson) => string) =>
 `;
 
 export const WhyMonocleTsExample = () => {
-  const codeString = "(num) => num + 1";
   return (
     <Page>
       <CodePanel>
