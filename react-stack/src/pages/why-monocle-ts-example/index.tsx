@@ -1,27 +1,5 @@
 import React from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
-import styled from "styled-components";
-
-const Page = styled.div`
-  display: flex;
-  position: absolute;
-  width: 100vw;
-  top: 0;
-  background: white;
-  align-items: stretch;
-`;
-
-const CodePanel = styled.div`
-  width: 50%;
-  :first-child {
-    margin-right: 8px;
-  }
-  display: flex;
-  &  pre {
-    flex: 1;
-  }
-`;
+import { CodeDiffPanel } from "../../components/CodeDiffPanel";
 
 const nativeWayCodeStr = `
 export const subjects: Subject[] = [
@@ -128,17 +106,9 @@ export const modifyLessonName2 = (getLessonName: (lesson: Lesson) => string) =>
 
 export const WhyMonocleTsExample = () => {
   return (
-    <Page>
-      <CodePanel>
-        <SyntaxHighlighter language="typescript" style={solarizedlight}>
-          {nativeWayCodeStr}
-        </SyntaxHighlighter>
-      </CodePanel>
-      <CodePanel>
-        <SyntaxHighlighter language="typescript" style={solarizedlight}>
-          {monocleWayCodeStr}
-        </SyntaxHighlighter>
-      </CodePanel>
-    </Page>
+    <CodeDiffPanel
+    leftCodeStr={nativeWayCodeStr}
+    rightCodeStr={monocleWayCodeStr}
+    />
   );
 };
