@@ -15,6 +15,7 @@ export const fold = <T>(xs: Array<T>, monoid: Monoid<T>) =>
  * */
 
 type Kind<URI extends URIS, A> = URItoKind<A>[URI];
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface URItoKind<A> {}
 type URIS = keyof URItoKind<any>;
 
@@ -26,6 +27,6 @@ interface Foldable<F extends URIS, A> {
   fold: <A>(fa: Kind<F, A>, monoid: Monoid<A>) => A;
 }
 
-const getFoldArray: <T>() => Foldable<"Array", T> = () => ({
+const getFoldArray: <T>() => Foldable<'Array', T> = () => ({
   fold,
 });
