@@ -1,5 +1,7 @@
 {
-  "dependencies": {},
+  "dependencies": {
+    "io-ts": "^2.2.13"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.10",
     "@types/lodash": "^4.14.159",
