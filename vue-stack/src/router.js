@@ -1,17 +1,14 @@
 import VueRouter from "vue-router";
-import ReassignArrayTriggerUpdate from "./pages/ReassignArrayTriggerUpdate";
-import AddNewPropertiesToNoRootLevelData from "./pages/AddNewPropertiesToNoRootLevelData";
+import * as components from "./pages";
 
-export const routes = [
-  {
-    path: "/ReassignArrayTriggerUpdate",
-    component: ReassignArrayTriggerUpdate
-  },
-  {
-    path: "/AddNewPropertiesToNoRootLevelData",
-    component: AddNewPropertiesToNoRootLevelData
-  }
-];
+export const routes = Object.entries(components).map(
+  ([componentName, component]) => ({
+    path: `/${componentName}`,
+    component
+  })
+);
+
+console.log(routes);
 
 export const router = new VueRouter({
   routes

@@ -3,7 +3,7 @@
     <div class="router">
       <ul>
         <li v-for="route of routes" :key="route.path">
-          <router-link :to="route.path">{{ route.component.name }}</router-link>
+          <router-link :to="route.path">{{ route.path }}</router-link>
         </li>
       </ul>
     </div>

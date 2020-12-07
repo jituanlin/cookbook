@@ -4,7 +4,7 @@
       {{ this.jsonStr }}
     </div>
     <div>
-      {{this.notRootLevelData.newProps}}
+      {{ this.rootLevelData.newProps }}
     </div>
     <div>
       <p>
@@ -22,6 +22,11 @@
           addNewPropsByObjectDotAssignToNewObject
         </button>
       </p>
+      <p>
+        <button @click="addNewPropsByAssignTwice">
+          addNewPropsByAssignTwice
+        </button>
+      </p>
     </div>
   </div>
 </template>
@@ -31,25 +36,34 @@ export default {
   name: "AddNewPropertiesToNoRootLevelData",
   data() {
     return {
-      notRootLevelData: {}
+      // "root level" mean define in `data` option
+      rootLevelData: {}
     };
   },
   methods: {
+    // NOT WORK
     addNewPropsByDirectlyAssign() {
-      this.notRootLevelData.newProps = 42;
+      this.rootLevelData.newProps = 42;
     },
+    // NOT WORK
     addNewPropsByObjectDotAssign() {
-      Object.assign(this.notRootLevelData, { newProps: 42 });
+      Object.assign(this.rootLevelData, { newProps: 42 });
     },
+    // WORK
     addNewPropsByObjectDotAssignToNewObject() {
-      this.notRootLevelData = Object.assign({}, this.notRootLevelData, {
+      this.rootLevelData = Object.assign({}, this.rootLevelData, {
         newProps: 42
       });
+    },
+    // NOT WORK
+    addNewPropsByAssignTwice() {
+      this.rootLevelData.newProps = 0;
+      this.rootLevelData.newProps = 42;
     }
   },
   computed: {
     jsonStr() {
-      return JSON.stringify(this.notRootLevelData);
+      return JSON.stringify(this.rootLevelData);
     }
   }
 };
