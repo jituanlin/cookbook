@@ -1,5 +1,5 @@
 import {pipe} from 'fp-ts/function';
-import * as D from 'io-ts/Decoder';
+import * as D from 'io-ts/decoder';
 import * as fp from 'fp-ts';
 
 export interface PositiveBrand {
