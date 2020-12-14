@@ -1,24 +1,15 @@
-import {pipe} from 'fp-ts/function';
 import * as D from 'io-ts/decoder';
-import * as fp from 'fp-ts';
+import * as F from 'fp-ts';
 
-export interface PositiveBrand {
-  readonly Positive: unique symbol;
+interface AgeBrand {
+  readonly Age: unique symbol;
 }
 
-export type Positive = number & PositiveBrand;
-
-export const Positive: D.Decoder<unknown, Positive> = pipe(
+type Age = number & AgeBrand;
+const ageD = F.pipeable.pipe(
   D.number,
-  D.refine((n): n is Positive => n > 0, 'Positive')
+  D.refine((input): input is Age => input > 0 && input < 130, 'Age'),
+  D.withMessage(() => 'age must in range(0,130)')
 );
 
-const p: Positive = fp.pipeable.pipe(
-  Positive.decode(-1),
-  fp.either.fold(
-    () => 2 as Positive,
-    a => a
-  )
-);
-
-console.log(p);
+F.pipeable.pipe(140, ageD.decode, console.log);
