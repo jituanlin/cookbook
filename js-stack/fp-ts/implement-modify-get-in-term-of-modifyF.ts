@@ -19,5 +19,5 @@ class LensN extends Lens<{n: number}, number> {
 
 const lenN = new LensN();
 
-// log:
+// log: 42
 console.log(lenN.get({n: 42}));
