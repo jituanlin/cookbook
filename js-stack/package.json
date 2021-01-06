@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "fp-ts3": "npm:fp-ts@^3.0.0-alpha.5",
     "io-ts": "^2.2.13"
   },
   "devDependencies": {
