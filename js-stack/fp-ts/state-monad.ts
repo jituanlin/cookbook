@@ -1,5 +1,5 @@
 /**
- * `State monad` is used to represent a computation which depend on a state and may be mutate that state.
+ * `State monad` is used to represent a computation which depend on a state and may mutate that state.
  * But in functional programming, mutate is side effect and break the transparency reference.
  * So we maintain that state explicitly, all computation depend on or mutate it
  * should accept it as parameter and return it along with computation result.
@@ -23,7 +23,7 @@ assert.deepStrictEqual(f2(3), [undefined, 1]);
 const f3 = fp.state.modify((n: number) => n + 1); // the `modify` function constructs a state monad whose state be `modify` by function passed to
 assert.deepStrictEqual(f3(4), [undefined, 5]);
 
-const f4 = fp.state.gets((n: number) => n + 1); // The `gets` function constructs a state monad from a function which accept state as input and output the computation result
+const f4 = fp.state.gets((n: number) => n + 1); // The `gets` function constructs a state monad which get result by passed state
 assert.deepStrictEqual(f4(3), [4, 3]);
 
 /**
