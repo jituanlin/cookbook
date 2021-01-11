@@ -1,4 +1,4 @@
-package ExercisetSpec
+package ExerciseSpec
 
 import org.scalatest.flatspec.AnyFlatSpec
 import exercise.answer.{Right, Left, Either}
