@@ -1,7 +1,5 @@
 package exercise
 
-import scala.{Option => _, Either => _, _}
-
 object answer {
 
   trait Stream[+A] {
@@ -10,7 +8,7 @@ object answer {
     def isEmpty: Boolean = uncons.isEmpty
 
     def toList: List[A] = uncons match {
-      case Some(hd :: tl) => hd :: tl.toList()
+      case Some((hd, tl)) => hd :: tl.toList
       case None => List.empty
     }
 

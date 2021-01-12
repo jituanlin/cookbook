@@ -13,5 +13,5 @@ const main = () => {
   );
 };
 
-// log:  4, 'init with 1\n+1\n+2\n' ]
+// log:  [4, 'init with 1\n+1\n+2\n']
 main();

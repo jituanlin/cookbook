@@ -1,7 +1,6 @@
-package ExerciseSpec
+package exercise.spec
 
 import org.scalatest.flatspec.AnyFlatSpec
-import exercise.answer.{Right, Left, Either}
 
 
 class ExerciseSpec extends AnyFlatSpec {
