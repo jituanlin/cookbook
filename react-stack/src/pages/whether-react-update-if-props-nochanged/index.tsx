@@ -18,13 +18,7 @@ export class WhetherReactUpdateIfPropsNoChanged extends React.Component<
     }, 1000);
   }
 
-  componentDidUpdate(
-      prevProps: Readonly<{
-        handler: () => void;
-      }>,
-      prevState: Readonly<{}>,
-      snapshot?: any
-  ) {
+  componentDidUpdate() {
     console.log("parent component has updated");
   }
 
@@ -45,13 +39,7 @@ class Child extends React.Component<{}, {}> {
     return <p>Child Component</p>;
   }
 
-  componentDidUpdate(
-    prevProps: Readonly<{
-      handler: () => void;
-    }>,
-    prevState: Readonly<{}>,
-    snapshot?: any
-  ) {
+  componentDidUpdate() {
     console.log("child component has updated");
   }
 }
