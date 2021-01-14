@@ -17,5 +17,5 @@ assert.deepStrictEqual(r2(), 42);
 const r3 = fp.reader.ask<string>(); // the `ask` construct a reader that return it's dependency as it's computation result
 assert.deepStrictEqual(r3('one'), 'one');
 
-const r4 = fp.reader.asks((n: number) => String(n)); // accept a function then return it???
+const r4 = fp.reader.asks((n: number) => String(n)); // just define function: R => A directly
 assert.deepStrictEqual(r4(1), '1');

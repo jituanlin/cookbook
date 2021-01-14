@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "fp-ts3": "npm:fp-ts@^3.0.0-alpha.5",
-    "io-ts": "^2.2.13"
+    "io-ts": "^2.2.13",
+    "monocle-ts3": "npm:monocle-ts@^2.0.0-rc.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.10",
