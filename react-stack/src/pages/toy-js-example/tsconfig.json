@@ -1,9 +1,0 @@
-{
-  "extends": "../../../tsconfig.json",
-  "module": "CommonJS",
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "noEmit": true
-  },
-  "include": ["./**/*"]
-}

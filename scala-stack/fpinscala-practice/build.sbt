@@ -13,7 +13,7 @@ scalaVersion := "2.13.4"
 
 // It's possible to define many kinds of settings, such as:
 
-name := "hello-world"
+name := "fpinscala-practice"
 organization := "ch.epfl.scala"
 version := "1.0"
 
