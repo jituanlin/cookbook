@@ -10,14 +10,13 @@ import {option} from 'fp-ts';
 import {pipe} from 'fp-ts/function';
 import {SectionM} from '../optics/section';
 
-export const Article = (props: {
+const Article_ = (props: {
   treeTitle: tree.Tree<Title>;
   selectedTitleId: Option<number>;
 }) => {
   const treeSectionQ = useQuery('treeSectionQ', async () => {
     return fetchTreeSection(props.treeTitle);
   });
-  console.log(props.selectedTitleId);
   const body = useMemo(() => {
     return queryHelpers.fold(treeSectionQ)(tree =>
       pipe(
@@ -29,6 +28,8 @@ export const Article = (props: {
               ...section,
               isSelected: true,
             }))(tree);
+            console.log('newTree', newTree);
+            console.log('tree', tree);
             return renderTreeSection(newTree);
           }
         )
@@ -37,3 +38,5 @@ export const Article = (props: {
   }, [treeSectionQ, props.selectedTitleId]);
   return <>{body}</>;
 };
+
+export const Article = React.memo(Article_);

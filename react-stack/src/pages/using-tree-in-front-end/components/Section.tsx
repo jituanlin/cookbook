@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import React, {ReactNode} from 'react';
 
 const _Section = (props: {self: S; children: ReactNode}) => {
+  console.log('section render');
   return (
     <Styled isSelected={props.self.isSelected}>
       <div className="self">
@@ -32,12 +33,13 @@ const Styled = styled.div`
     }
     background: inherit;
   }
-  &,
-  .self,
-  .title,
-  .content,
-  .children {
-    background: ${(props: StyledProps) =>
-      props.isSelected ? 'lightyellow' : ''};
+  & {
+    .self,
+    .title,
+    .content,
+    .children > div {
+      background: ${(props: StyledProps) =>
+        props.isSelected ? 'lightyellow' : ''}!important;
+    }
   }
 `;
