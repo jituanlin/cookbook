@@ -1,4 +1,4 @@
-import * as F from 'fp-ts2';
+import * as F from 'fp-ts';
 
 export interface Title {
   id: number;

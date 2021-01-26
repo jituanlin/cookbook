@@ -1,7 +1,7 @@
 import {Title} from '../types';
-import {option, pipeable, readonlyArray as ra} from 'fp-ts2';
-import {Option} from 'fp-ts2/Option';
-import {sequenceT} from 'fp-ts2/Apply';
+import {option, pipeable, readonlyArray as ra} from 'fp-ts';
+import {Option} from 'fp-ts/Option';
+import {sequenceT} from 'fp-ts/Apply';
 
 export const find = (id: number | null) => (
   titles: readonly Title[]

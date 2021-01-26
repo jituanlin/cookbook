@@ -1,7 +1,7 @@
 import {Title, TreeTitle} from '../types';
 import * as th from './titleHelpers';
-import {option, pipeable, tree} from 'fp-ts2';
-import {Option} from 'fp-ts2/Option';
+import {option, pipeable, tree} from 'fp-ts';
+import {Option} from 'fp-ts/Option';
 
 // It's not necessary to use unfoldM in here
 export const transformTitles2tree = (

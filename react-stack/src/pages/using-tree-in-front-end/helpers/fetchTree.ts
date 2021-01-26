@@ -1,10 +1,10 @@
 import {Section, Title, TreeTitle} from '../types';
-import {Tree} from 'fp-ts2/Tree';
-import {pipe} from 'fp-ts2/pipeable';
-import {either, taskEither, tree} from 'fp-ts2';
-import {tryCatch} from 'fp-ts/TaskEither';
+import {Tree} from 'fp-ts/Tree';
+import {pipe} from 'fp-ts/pipeable';
+import {either, taskEither, tree} from 'fp-ts';
+import {tryCatch} from 'fp-ts3/TaskEither';
 import {fetchContent} from '../apis';
-import {identity} from 'fp-ts2/function';
+import {identity} from 'fp-ts/function';
 
 export const fetchTreeSection = async (
   treeTitle: TreeTitle

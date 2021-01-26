@@ -1,5 +1,5 @@
 import {AntdTree, Title, TreeTitle} from '../types';
-import {pipeable, tree} from 'fp-ts2';
+import {pipeable, tree} from 'fp-ts';
 
 export const transformTreeTitle2antdTree = (treeTitle: TreeTitle): AntdTree => {
   return pipeable.pipe(

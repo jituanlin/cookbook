@@ -24,12 +24,20 @@ const Styled = styled.div`
   text-align: left;
   .children {
     padding-left: 32px;
+    background: inherit;
   }
   .self {
     .content {
       padding-left: 12px;
     }
+    background: inherit;
   }
-  background: ${(props: StyledProps) =>
-    props.isSelected ? 'lightyellow' : ''};
+  &,
+  .self,
+  .title,
+  .content,
+  .children {
+    background: ${(props: StyledProps) =>
+      props.isSelected ? 'lightyellow' : ''};
+  }
 `;
