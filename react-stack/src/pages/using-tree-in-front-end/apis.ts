@@ -1,4 +1,5 @@
 import {Title} from './types';
+import {TimeOut} from '../../utils/TimeOut';
 
 export const titles: readonly Title[] = [
   {
@@ -28,6 +29,14 @@ export const titles: readonly Title[] = [
   },
 ];
 
-export const getTitles = async (): Promise<readonly Title[]> => {
+export const fetchTitles = async (): Promise<readonly Title[]> => {
+  await TimeOut(1000);
   return titles;
+};
+
+export const fetchContent = async (titleId: number): Promise<string> => {
+  await TimeOut(1000);
+  return `content of title[id=${titleId}] first paragraph
+content of title[id=${titleId}] second paragraph
+content of title[id=${titleId}] second paragraph`;
 };

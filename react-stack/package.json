@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^4.11.1",
     "fp-ts": "^3.0.0-alpha.6",
     "fp-ts2": "npm:fp-ts@^2.9.3",
+    "memoize-one": "^5.1.1",
+    "monocle-ts": "^2.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-query": "^3.6.0",
     "react-router-dom": "^5.2.0",
     "react-syntax-highlighter": "^13.5.3",
     "styled-components": "^5.2.0"
