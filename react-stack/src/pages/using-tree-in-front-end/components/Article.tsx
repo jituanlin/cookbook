@@ -28,8 +28,6 @@ const Article_ = (props: {
               ...section,
               isSelected: true,
             }))(tree);
-            console.log('newTree', newTree);
-            console.log('tree', tree);
             return renderTreeSection(newTree);
           }
         )
