@@ -10,6 +10,7 @@ import {DirectoryTree} from './components/DirectoryTree';
 import {transformTitles2tree} from './helpers/transformTitles2tree';
 import {Article} from './components/Article';
 import {none, Option} from 'fp-ts/Option';
+import {useRemoteData} from '../../utils/remoteData';
 
 const RenderBody = (context: {
   selectedTitleId: Option<number>;
@@ -46,10 +47,12 @@ export const UsingTreeInFrontEnd = () => {
     [selectedTitleId, setSelectedTitleId]
   );
 
-  const body = useMemo(() => queryHelpers.fold(treeTitleQ)(renderBody), [
-    treeTitleQ,
-    renderBody,
-  ]);
+  const treeTitleR = useRemoteData(treeTitleQ);
+
+  const body = useMemo(
+    () => queryHelpers.foldPartially(renderBody)(treeTitleR),
+    [treeTitleQ, renderBody]
+  );
 
   return <Styled>{body}</Styled>;
 };

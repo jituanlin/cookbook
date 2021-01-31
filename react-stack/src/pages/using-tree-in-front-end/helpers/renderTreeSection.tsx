@@ -1,10 +1,10 @@
 import {Tree} from 'fp-ts/Tree';
 import {Section as S} from '../types';
 import {tree} from 'fp-ts';
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {Section} from '../components/Section';
 
-const coRec = (self: S, children: readonly ReactNode[]) => {
+const coRec = (self: S, children: readonly JSX.Element[]) => {
   return (
     <Section self={self} key={self.id}>
       {children}
@@ -12,6 +12,6 @@ const coRec = (self: S, children: readonly ReactNode[]) => {
   );
 };
 
-export const renderTreeSection = (treeSection: Tree<S>): ReactNode => {
+export const renderTreeSection = (treeSection: Tree<S>): JSX.Element => {
   return tree.fold(coRec)(treeSection);
 };

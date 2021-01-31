@@ -1,4 +1,4 @@
-import {Title} from '../types';
+import {Section, Title} from '../types';
 import {tree} from 'fp-ts';
 import {renderTreeSection} from '../helpers/renderTreeSection';
 import {useQuery} from 'react-query';
@@ -9,6 +9,8 @@ import {Option} from 'fp-ts/Option';
 import {option} from 'fp-ts';
 import {pipe} from 'fp-ts/function';
 import {SectionM} from '../optics/section';
+import {useRemoteData} from '../../../utils/remoteData';
+import {Tree} from 'fp-ts/Tree';
 
 const Article_ = (props: {
   treeTitle: tree.Tree<Title>;
@@ -17,8 +19,10 @@ const Article_ = (props: {
   const treeSectionQ = useQuery('treeSectionQ', async () => {
     return fetchTreeSection(props.treeTitle);
   });
+  const treeSectionR = useRemoteData(treeSectionQ);
+
   const body = useMemo(() => {
-    return queryHelpers.fold(treeSectionQ)(tree =>
+    return queryHelpers.foldPartially((tree: Tree<Section>) =>
       pipe(
         props.selectedTitleId,
         option.fold(
@@ -32,7 +36,7 @@ const Article_ = (props: {
           }
         )
       )
-    );
+    )(treeSectionR);
   }, [treeSectionQ, props.selectedTitleId]);
   return <>{body}</>;
 };
