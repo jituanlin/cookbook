@@ -1,4 +1,4 @@
-import {treeTaskEitherTitle} from './index';
+import {treeTaskEitherTitle} from './unfold-for-task-either';
 import * as F from 'fp-ts';
 
 describe('un-fold-tree-m', () => {
