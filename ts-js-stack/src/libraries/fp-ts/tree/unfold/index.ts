@@ -1,4 +1,4 @@
-`import * as F from 'fp-ts';
+import * as F from 'fp-ts';
 import * as R from 'ramda';
 import {Title, TreeTitle} from '../../../shared/type';
 import {titles} from '../../../shared/data/titles';
@@ -13,4 +13,3 @@ export const treeTitle: TreeTitle = F.tree.unfoldTree<Title, number>(1, id => {
 
   return [self, seeds];
 });
-`;
