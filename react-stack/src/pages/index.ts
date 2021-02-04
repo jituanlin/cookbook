@@ -5,3 +5,4 @@ export {ReactConnectReimplementation} from './redux-implementation/react-connect
 export {UseMemoWithEmptyDeps} from './use-memo-with-empty-deps';
 export {UsingTreeInFrontEnd} from './using-tree-in-front-end';
 export {ReactMemoSaveCacheInWorkInProgress} from './react-memo-save-cache-in-work-in-progress';
+export {FetchStateHandlePattern} from './fetch-state-handle-pattern';
