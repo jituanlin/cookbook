@@ -19,6 +19,11 @@ object answer {
       case Cons(h, t) => h() :: t().toList
       case _ => List()
     }
+
+    def takeWhile(p: A => Boolean): Stream[A] = this match {
+      case Cons(h,t) if p(h()) => cons(h(), t().takeWhile(p))
+      case _ => empty
+    }
   }
 
   object Stream {
@@ -31,8 +36,6 @@ object answer {
     def apply[A](as: A*): Stream[A] =
       if (as.isEmpty) empty
       else cons(as.head, apply(as.tail: _*))
-
-
   }
 
 }
