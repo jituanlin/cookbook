@@ -31,10 +31,7 @@ object answer {
         case _ => z
       }
 
-    def forAll(p: A => Boolean): Boolean = this match {
-      case Cons(h, t) => if (p(h())) t().forAll(p) else false
-      case _ => true
-    }
+    def forAll(p: A => Boolean): Boolean = foldRight(true)((a, acc) => acc && p(a))
   }
 
   object Stream {
