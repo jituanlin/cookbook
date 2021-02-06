@@ -1,6 +1,6 @@
 package exercise
 
-import exercise.answer.Stream.cons
+import exercise.answer.Stream.{cons, empty}
 
 object answer {
 
@@ -32,6 +32,16 @@ object answer {
       }
 
     def forAll(p: A => Boolean): Boolean = foldRight(true)((a, acc) => acc && p(a))
+
+    def map[B](f: A => B): Stream[B] = foldRight(empty[B])((a, bs) => cons(f(a), bs))
+
+    def filter(p: A => Boolean): Stream[A] = foldRight(empty[A])((a, bs) => if (p(a)) cons(a, bs) else bs)
+
+    def append[B >: A](s: => Stream[B]): Stream[B] = foldRight(s)((a, bs) => cons(a, bs))
+
+    def flatMap[B](f: A => Stream[B]): Stream[B] = foldRight(empty[B])((a, bs) => f(a) append bs)
+
+
   }
 
   object Stream {
