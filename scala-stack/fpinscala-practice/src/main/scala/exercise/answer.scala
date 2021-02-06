@@ -57,7 +57,9 @@ object answer {
       if (as.isEmpty) Empty
       else cons(as.head, apply(as.tail: _*))
 
-    def constant[A](a:A):Stream[A] = cons(a, constant(a))
+    def constant[A](a: A): Stream[A] = cons(a, constant(a))
+
+    def from(n: Int): Stream[Int] = cons(n, from(n + 1))
   }
 
 }

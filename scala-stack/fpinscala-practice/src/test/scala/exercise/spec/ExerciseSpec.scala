@@ -8,6 +8,6 @@ import exercise.answer.{Empty, Stream}
 class ExerciseSpec extends AnyFlatSpec {
   "basic functionality" should "work" in {
     val s = Stream(1, 2, 3)
-    assert(constant(1).take(2).toList.equals(List(1,1)))
+    assert(Stream.from(2).take(2).toList.equals(List(2, 3)))
   }
 }
