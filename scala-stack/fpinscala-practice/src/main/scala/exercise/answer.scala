@@ -60,6 +60,13 @@ object answer {
     def constant[A](a: A): Stream[A] = cons(a, constant(a))
 
     def from(n: Int): Stream[Int] = cons(n, from(n + 1))
+
+    def unfold[A, S](z: S)(f: S => Option[(A, S)]): Stream[A] = {
+      f(z) match {
+        case Some((a, s)) => cons(a, unfold(s)(f))
+        case _ => empty
+      }
+    }
   }
 
 }
