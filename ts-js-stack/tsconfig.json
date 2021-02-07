@@ -28,8 +28,7 @@
     "skipDefaultLibCheck": true,
     "inlineSourceMap": true,
     "importHelpers": false,
-    "esModuleInterop": true,
-    "strictFunctionTypes": false
+    "esModuleInterop": true
   },
   "exclude": [
     "node_modules*",
