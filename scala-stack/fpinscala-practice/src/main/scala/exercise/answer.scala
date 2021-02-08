@@ -57,9 +57,6 @@ object answer {
       if (as.isEmpty) Empty
       else cons(as.head, apply(as.tail: _*))
 
-    def constant[A](a: A): Stream[A] = cons(a, constant(a))
-
-    def from(n: Int): Stream[Int] = cons(n, from(n + 1))
 
     def unfold[A, S](z: S)(f: S => Option[(A, S)]): Stream[A] = {
       f(z) match {
@@ -67,6 +64,11 @@ object answer {
         case _ => empty
       }
     }
+
+
+    def constant[A](a: A): Stream[A] = unfold(a)((_) => Some((a, a)))
+
+    def from(n: Int): Stream[Int] = unfold(n)(n1 => Some((n1, n1 + 1)))
   }
 
 }
