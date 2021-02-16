@@ -38,19 +38,19 @@ object answer {
       case _ => None
     })
 
-    def tail():Stream[A] = this match {
-      case Cons(h,t) => t()
+    def tail(): Stream[A] = this match {
+      case Cons(h, t) => t()
       case _ => empty
     }
 
 
-    def takeViaUnfold(n: Int): Stream[A] = unfold((this,0))({
-      case (Cons(h, t),ni) if ni < n => Some((h(),(t(),n+1)))
+    def takeViaUnfold(n: Int): Stream[A] = unfold((this, 0))({
+      case (Cons(h, t), ni) if ni < n => Some((h(), (t(), n + 1)))
       case _ => None
     })
 
-    def takeWhileViaUnfold(p: A => Boolean): Stream[A] = unfold(this){
-      case Cons(h,t) if p(h()) => Some((h(),t()))
+    def takeWhileViaUnfold(p: A => Boolean): Stream[A] = unfold(this) {
+      case Cons(h, t) if p(h()) => Some((h(), t()))
       case _ => None
     }
 
@@ -61,7 +61,10 @@ object answer {
 
     def flatMap[B](f: A => Stream[B]): Stream[B] = foldRight(empty[B])((a, bs) => f(a) append bs)
 
-
+    def tails: Stream[Stream[A]] = unfold(this) {
+      case Cons(h, t) => Some((cons(h(), t()), t()))
+      case _ => None
+    } append Stream(empty)
   }
 
   object Stream {
