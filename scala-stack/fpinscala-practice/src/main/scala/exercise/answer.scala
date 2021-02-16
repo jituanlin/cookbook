@@ -1,6 +1,6 @@
 package exercise
 
-import exercise.answer.Stream.{cons, empty}
+import exercise.answer.Stream.{cons, empty, unfold}
 
 object answer {
 
@@ -33,7 +33,27 @@ object answer {
 
     def forAll(p: A => Boolean): Boolean = foldRight(true)((a, acc) => acc && p(a))
 
-    def map[B](f: A => B): Stream[B] = foldRight(empty[B])((a, bs) => cons(f(a), bs))
+    def map[B](f: A => B): Stream[B] = unfold(this)({
+      case Cons(h, t) => Some((f(h()), t()))
+      case _ => None
+    })
+
+    def tail():Stream[A] = this match {
+      case Cons(h,t) => t()
+      case _ => empty
+    }
+
+
+    def takeViaUnfold(n: Int): Stream[A] = unfold((this,0))({
+      case (Cons(h, t),ni) if ni < n => Some((h(),(t(),n+1)))
+      case _ => None
+    })
+
+    def takeWhileViaUnfold(p: A => Boolean): Stream[A] = unfold(this){
+      case Cons(h,t) if p(h()) => Some((h(),t()))
+      case _ => None
+    }
+
 
     def filter(p: A => Boolean): Stream[A] = foldRight(empty[A])((a, bs) => if (p(a)) cons(a, bs) else bs)
 
