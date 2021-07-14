@@ -1,5 +1,5 @@
 /**
- * The following code is a implementation of [lensWhere](https://github.com/jituanlin/cookbook/blob/master/js-stack/fp/lens-where/index.ts)
+ * The following code is a implementation of [lensWhere](https://github.com/polymona/cookbook/blob/master/js-stack/fp/lens-where/index.ts)
  * with monocle-ts.
  * */
 

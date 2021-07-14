@@ -37,8 +37,8 @@
   "scripts": {
     "pretty": "prettier --write \"./**/*.{js,jsx,json,ts}\" \"!build/**\""
   },
-  "author": "jituanlin",
+  "author": "polymona",
   "license": "MIT",
-  "description": "Jituanlin's code cookbook",
-  "name": "jituanlins-cookbook"
+  "description": "polymona's code cookbook",
+  "name": "polymonas-cookbook"
 }
