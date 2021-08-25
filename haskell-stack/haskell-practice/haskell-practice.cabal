@@ -1,20 +1,66 @@
-name:                haskell-practice
-version:             0.1.0.0
--- synopsis:
--- description:
-homepage:            https://github.com/githubuser/haskell-practice#readme
-license:             BSD3
-license-file:        LICENSE
-author:              Author name here
-maintainer:          example@example.com
-copyright:           2021 Author name here
-category:            Web
-build-type:          Simple
-cabal-version:       >=1.10
-extra-source-files:  README.md
+cabal-version: 1.12
 
-executable haskell-practice
-  hs-source-dirs:      src
-  main-is:             Main.hs
-  default-language:    Haskell2010
-  build-depends:       base >= 4.7 && < 5
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 89ebfcc935a3f19427bfcce474b58c6e918feae3eaa3f48d731a5a6e9d422a63
+
+name:           haskell-practice
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/haskell-practice#readme>
+homepage:       https://github.com/githubuser/haskell-practice#readme
+bug-reports:    https://github.com/githubuser/haskell-practice/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2021 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/haskell-practice
+
+library
+  exposed-modules:
+      CategoryTheoryForProgrammersChallenges.Challenge14
+      Lib
+  other-modules:
+      Paths_haskell_practice
+  hs-source-dirs:
+      src
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+executable haskell-practice-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_haskell_practice
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , haskell-practice
+  default-language: Haskell2010
+
+test-suite haskell-practice-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_haskell_practice
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , haskell-practice
+  default-language: Haskell2010
