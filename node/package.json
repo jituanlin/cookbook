@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "fp-ts": "^2.9.1",
-    "fp-ts3": "npm:fp-ts@^3.0.0-alpha.6",
     "immutable": "^4.0.0-rc.12",
     "io-ts": "^2.2.13",
     "lodash": "^4.17.20",
@@ -37,8 +36,8 @@
   "scripts": {
     "pretty": "prettier --write \"./**/*.{js,jsx,json,ts}\" \"!build/**\""
   },
-  "author": "polymona",
+  "author": "jituanlin",
   "license": "MIT",
-  "description": "polymona's code cookbook",
+  "description": "jituanlin 's code cookbook",
   "name": "polymonas-cookbook"
 }

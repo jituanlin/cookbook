@@ -13,7 +13,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "charset": "utf8",
-    "allowJs": false,
+    "allowJs": true,
     "pretty": true,
     "noEmitOnError": false,
     "noUnusedLocals": false,
@@ -33,11 +33,6 @@
   },
   "exclude": [
     "node_modules*",
-    "app/public",
-    "app/views",
-    "test/",
-    "conf",
-    "run",
     "temp"
   ]
 }
