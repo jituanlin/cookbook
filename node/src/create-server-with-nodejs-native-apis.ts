@@ -1,5 +1,5 @@
 /**
- * The following code is an example create a web server using only native node API.
+ * Create a web server with nodejs native API.
  * */
 import * as http from 'http';
 

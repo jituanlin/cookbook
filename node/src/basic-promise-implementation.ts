@@ -1,9 +1,9 @@
 /**
- * The following code is a append-content implementation of JS 's `PromiseA+` specification.
+ * The following code implements the `PromiseA+` specification.
  * The core logic is:
- *  1. Store state('Pending', 'Resolved', 'Rejected') in `state` property required for `await`.
- *  2. Use handlers to collect all [onResolved, onRejected] passed to `then`. It's required to call `then`
- *  multiple times on one `Promise`.
+ *  1. Store state('Pending', 'Resolved', 'Rejected') in `state` property.
+ *  2. Collect all callback(onResolved | onRejected) passed to `then`.
+ *   required to call `then` multiple times on one `Promise`.
  *  3. `executor` passed by constructor is the key point for the `Promise` creator to notify
  *  what time the `Promise` state should be changed and handler should be called.
  *  4. `handler` should be call asynchronously.
@@ -107,6 +107,7 @@ export class PromiseA<A> {
   }
 
   catch<C>(onRejected?: (reason: unknown) => C): PromiseA<C> {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     return this.then(() => {}, onRejected) as PromiseA<C>;
   }
 

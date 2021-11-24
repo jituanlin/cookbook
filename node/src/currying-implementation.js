@@ -1,3 +1,7 @@
+/**
+ * Implement curring function.
+ * */
+
 const curring = (f, filledArgs = []) => {
   return (...args) => {
     const filledArgs$ = filledArgs.concat(args);

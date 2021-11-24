@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-auto-columns: 50px 50px;
+            grid-auto-rows: 100px 100px;
+        }
+        .outside-cell{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div>AAAAAAAAA</div>
+    <div>BBBBBBBBB</div>
+    <div>CCCCCCCCC</div>
+    <div>DDDDDDDDD</div>
+    <div class="outside-cell">EEEEEEEEE</div>
+    <div class="outside-cell">EEEEEEEEE</div>
+    <div class="outside-cell">FFFFFFFFF</div>
+</div>
+</body>
+</html>
