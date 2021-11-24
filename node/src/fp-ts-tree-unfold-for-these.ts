@@ -1,6 +1,6 @@
 import {these, tree} from 'fp-ts';
 import {unfoldTreeM} from 'fp-ts/Tree';
-import {both, left, right, These} from 'fp-ts/These';
+import {both, right, These} from 'fp-ts/These';
 import {getSemigroup, NonEmptyArray} from 'fp-ts/NonEmptyArray';
 
 interface Title {

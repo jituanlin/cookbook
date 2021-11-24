@@ -1,9 +1,9 @@
 import {appendContent} from './fp-ts-state-demo';
-import * as F from 'fp-ts3';
+import {state} from 'fp-ts';
 
 describe('state/demo/basic', () => {
   test('appendContent', () => {
-    expect(F.state.execute('')(appendContent)).toEqual('\n1');
-    expect(F.state.evaluate('')(appendContent)).toEqual(2);
+    expect(state.execute('')(appendContent)).toEqual('\n1');
+    expect(state.evaluate('')(appendContent)).toEqual(2);
   });
 });

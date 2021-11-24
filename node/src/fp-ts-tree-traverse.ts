@@ -1,4 +1,13 @@
-import * as F from 'fp-ts3';
+/**
+ * Sequence Tree<Task<*>> => Task<Tree<*>>.
+ * Useful when fetching additional content of tree.
+ * */
+
+import {Task} from 'fp-ts/Task';
+import {task, tree} from 'fp-ts';
+import {Tree} from 'fp-ts/Tree';
+import {pipe} from 'fp-ts/function';
+
 import {Title} from './__internal/type';
 import {treeTitle} from './__internal/data/tree-title';
 
@@ -9,9 +18,9 @@ interface Article extends Title {
 const fetchContent = (titleId: number): Promise<string> =>
   Promise.resolve(`content of title[${titleId}]`);
 
-const treeTaskArticle: F.tree.Tree<F.task.Task<Article>> = F.function.pipe(
+const treeTaskArticle: Tree<Task<Article>> = pipe(
   treeTitle,
-  F.tree.map(title => async () => {
+  tree.map(title => async () => {
     const content = await fetchContent(title.id);
     return {
       ...title,
@@ -20,5 +29,6 @@ const treeTaskArticle: F.tree.Tree<F.task.Task<Article>> = F.function.pipe(
   })
 );
 
-export const taskTreeArticle: F.task.Task<F.tree.Tree<Article>> =
-  F.tree.sequence(F.task.ApplicativePar)(treeTaskArticle);
+export const taskTreeArticle: Task<Tree<Article>> = tree.sequence(
+  task.ApplicativePar
+)(treeTaskArticle);

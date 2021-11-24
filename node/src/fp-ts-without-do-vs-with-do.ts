@@ -1,7 +1,7 @@
-// with Do notation
 import {pipe} from 'fp-ts/function';
 import {option} from 'fp-ts';
 
+// with Do notation
 pipe(
   option.some(1),
   option.bindTo('n'),

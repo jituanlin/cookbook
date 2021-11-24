@@ -15,11 +15,7 @@
     "charset": "utf8",
     "allowJs": true,
     "pretty": true,
-    "noEmitOnError": false,
-    "noUnusedLocals": false,
-    "noImplicitThis": false,
     "resolveJsonModule": true,
-    "noUnusedParameters": false,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "strictPropertyInitialization": false,
@@ -33,6 +29,5 @@
   },
   "exclude": [
     "node_modules*",
-    "temp"
   ]
 }

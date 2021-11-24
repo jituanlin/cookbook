@@ -1,5 +1,6 @@
 import * as D from 'io-ts/decoder';
 import * as F from 'fp-ts';
+import {pipe} from 'fp-ts/function';
 
 interface AgeBrand {
   readonly Age: unique symbol;
@@ -12,4 +13,4 @@ const ageD = F.pipeable.pipe(
   D.withMessage(() => 'age must in range(0,130)')
 );
 
-F.pipeable.pipe(140, ageD.decode, console.log);
+pipe(140, ageD.decode, console.log);

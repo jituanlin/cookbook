@@ -34,7 +34,7 @@ console.log(obj2.toString);
 try {
   console.log(obj2 + '');
 } catch (e) {
-  console.log(e.message);
+  console.log(JSON.stringify(e));
 }
 
 Object.setPrototypeOf(obj2, Object.prototype);
