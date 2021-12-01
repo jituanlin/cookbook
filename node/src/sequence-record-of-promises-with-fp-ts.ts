@@ -37,5 +37,6 @@ const applyPromise: fp.apply.Apply1<PromiseURI> = {
   URI: promiseURI,
 };
 
-export const sequenceRecordOfPromises: SequenceRecordOfPromises = recordOfPromises =>
-  fp.apply.sequenceS(applyPromise)(recordOfPromises as any) as any;
+export const sequenceRecordOfPromises: SequenceRecordOfPromises =
+  recordOfPromises =>
+    fp.apply.sequenceS(applyPromise)(recordOfPromises as any) as any;

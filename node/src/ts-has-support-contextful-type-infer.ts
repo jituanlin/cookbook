@@ -1,6 +1,9 @@
 import {pipe} from 'fp-ts/function';
 
-const f = <T>() => (a: T) => a;
+const f =
+  <T>() =>
+  (a: T) =>
+    a;
 
 // f1: unknown => unknown (because typescript is not idea about what `T` is)
 const f1 = f();

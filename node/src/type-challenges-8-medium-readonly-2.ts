@@ -6,8 +6,7 @@ interface Todo {
 
 type MyReadonly2<O, RK extends keyof O> = {
   readonly [K in RK]: O[K];
-} &
-  O;
+} & O;
 
 const todo: MyReadonly2<Todo, 'title' | 'description'> = {
   title: 'Hey',
@@ -16,5 +15,5 @@ const todo: MyReadonly2<Todo, 'title' | 'description'> = {
 };
 
 /*todo.title = 'Hello'; // Error: cannot reassign a readonly property
-todo.description = 'barFoo'; // Error: cannot reassign a readonly property
-todo.completed = true; // OK*/
+ todo.description = 'barFoo'; // Error: cannot reassign a readonly property
+ todo.completed = true; // OK*/

@@ -37,17 +37,15 @@ export const getMatchedIndexAndValuePair = <T>(
  * */
 export const lensWhere = <T>(predicate: (elem: T) => boolean): Lens => {
   const getter = (target: Target<T>): T | undefined => {
-    const matchedIndexAndValuePair:
-      | IndexAndValuePairs<T>
-      | undefined = getMatchedIndexAndValuePair(target, predicate);
+    const matchedIndexAndValuePair: IndexAndValuePairs<T> | undefined =
+      getMatchedIndexAndValuePair(target, predicate);
 
     return matchedIndexAndValuePair?.[1];
   };
 
   const setter = (value: T, target: Target<T>) => {
-    const matchedIndexAndValuePair:
-      | IndexAndValuePairs<T>
-      | undefined = getMatchedIndexAndValuePair(target, predicate);
+    const matchedIndexAndValuePair: IndexAndValuePairs<T> | undefined =
+      getMatchedIndexAndValuePair(target, predicate);
 
     if (R.isNil(matchedIndexAndValuePair)) {
       return target;
