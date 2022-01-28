@@ -1,6 +1,6 @@
-export interface Thenable<A> {
+export interface JsThenable<A> {
   then<B, E>(
     onResolve: (val: A) => B,
     onReject: (e: unknown) => E
-  ): Thenable<B | E>;
+  ): JsThenable<B | E>;
 }

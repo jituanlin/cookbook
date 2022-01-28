@@ -6,7 +6,7 @@ export type Curried<I extends any[], R> = I extends [infer A]
   ? (a: A) => R
   : (a: Head<I>) => Curried<Tail<I>, R>;
 
-export const curry = <I extends any[], R>(
+export const tsCurry = <I extends any[], R>(
   fn: (...args: I) => R,
   appliedArgs: any[] = [],
   argLength: number = fn.length
@@ -14,5 +14,5 @@ export const curry = <I extends any[], R>(
   if (argLength === 1) {
     return ((a: any) => (fn as any)(...appliedArgs, a)) as any;
   }
-  return ((a: any) => curry(fn, [a, ...appliedArgs], argLength - 1)) as any;
+  return ((a: any) => tsCurry(fn, [a, ...appliedArgs], argLength - 1)) as any;
 };

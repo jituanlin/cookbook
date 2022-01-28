@@ -1,5 +1,7 @@
 /**
+ * TODO(jituanlin): clarify
  * AsyncQueue is used to obtain asynchronous job results according to the order of push.
+ *
  * If one job throws an error, it will be ignored and will not affect other jobs.
  * */
 export class AsyncQueue {
@@ -7,8 +9,8 @@ export class AsyncQueue {
 
   async push<T>(promise: Promise<T>): Promise<T> {
     this.promise = this.promise.then(
-      () => promise,
-      () => promise
+        () => promise,
+        () => promise
     );
     return this.promise;
   }

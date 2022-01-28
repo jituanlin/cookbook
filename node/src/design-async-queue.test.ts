@@ -1,5 +1,5 @@
-import {AsyncQueue} from './async-queue';
-import {TimeOut} from './time-out';
+import {AsyncQueue} from './design-async-queue';
+import {TimeOut} from './__internal/time-out';
 
 const mockRequest = async <T>(
   a: T,

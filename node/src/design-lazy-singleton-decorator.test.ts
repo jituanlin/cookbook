@@ -1,4 +1,4 @@
-import lazySingleton from './lazy-singleton-decorator';
+import lazySingleton from './design-lazy-singleton-decorator';
 
 describe('lazy-singleton-decorator', () => {
   test('decorated attribute should be cached when first access', async () => {

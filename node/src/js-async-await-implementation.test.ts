@@ -1,4 +1,4 @@
-import {run} from './async-await-implementation';
+import {run} from './js-async-await-implementation';
 
 describe('async-await-implementation', () => {
   test('basic functionality', async () => {
@@ -7,6 +7,7 @@ describe('async-await-implementation', () => {
       const b = yield Promise.resolve(2);
       return (a + b) as number;
     }
+
     return run(generatorFn()).then(value => expect(value).toEqual(3));
   });
 });

@@ -1,5 +1,5 @@
-import TaskSyncCollector from './tasks-sync-collector';
-import {getApiAndTracker} from './get-api-and-tracker';
+import TaskSyncCollector from './desgin-tasks-sync-collector';
+import {getApiAndTracker} from './__internal/get-api-and-tracker';
 
 describe('sync-collector-of-tasks', () => {
   test('SyncCollectorOfTasks should collect all calls in current synchronous execution context', async () => {

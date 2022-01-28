@@ -1,4 +1,4 @@
-import {DI, Injectable, Module} from './dependence-inject';
+import {DI, Injectable, Module} from './design-dependence-inject';
 
 describe('DI', () => {
   test('basic functionality test', async () => {

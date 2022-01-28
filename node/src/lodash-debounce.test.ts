@@ -1,5 +1,5 @@
 import {debounce} from 'lodash';
-import {TimeOut} from './time-out';
+import {TimeOut} from './__internal/time-out';
 
 describe('debounce', () => {
   test('debounce test', async () => {

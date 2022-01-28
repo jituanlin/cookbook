@@ -1,3 +1,4 @@
+// TODO(jituanlin): replace it with jest.spy
 export const getApiAndTracker = (): [
   number[],
   (xs: number[]) => Promise<number[]>

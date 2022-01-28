@@ -1,4 +1,4 @@
-import {memorize} from './memorize-decorator';
+import {memorize} from './design-memorize-decorator';
 
 const TestUtil = () => {
   const tracker: [number, number][] = [];

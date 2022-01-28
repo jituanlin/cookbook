@@ -1,4 +1,4 @@
-import {PromiseA, States} from './basic-promise-implementation';
+import {PromiseA, States} from './js-basic-promise-implementation';
 
 describe('promise-basic-implementation', () => {
   test('`Promise` is in one of state: pending, resolved, rejected', async () => {

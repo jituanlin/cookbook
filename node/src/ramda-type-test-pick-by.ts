@@ -1,5 +1,5 @@
 import {filter, is, pickBy, pipe, startsWith} from 'ramda';
-import {flow} from './flow';
+import {flow} from './ts-flow-implementation';
 
 const value1 = pickBy(startsWith('private_'), {
   privateName: '[test]:privateName1',

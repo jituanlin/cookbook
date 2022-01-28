@@ -1,4 +1,4 @@
-import {main4IO, main4State, main4Writer} from './tag-less-final';
+import {main4IO, main4State, main4Writer} from './fp-ts-tag-less-final';
 import {state, writer} from 'fp-ts';
 import {pipe} from 'fp-ts/function';
 

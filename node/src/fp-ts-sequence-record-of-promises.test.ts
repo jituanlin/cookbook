@@ -1,4 +1,4 @@
-import {sequenceRecordOfPromises} from './sequence-record-of-promises-with-fp-ts';
+import {sequenceRecordOfPromises} from './fp-ts-sequence-record-of-promises';
 
 describe('sequence-record-of-promise/fp-ts-version-implmentation', () => {
   test('sequence record of promise basic functionality', async () => {

@@ -9,7 +9,7 @@ import {
   optionalDate,
   optionalRating,
   traversalTags,
-} from './kinds-of-optics';
+} from './monocle-kinds-of-optics';
 
 const myFavoriteMovies: Movie[] = [
   {
