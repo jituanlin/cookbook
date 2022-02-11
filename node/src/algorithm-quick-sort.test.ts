@@ -1,4 +1,4 @@
-import {quickSort} from './quick-sort';
+import {quickSort} from './algorithm-quick-sort';
 
 describe('qucik-sort/index', () => {
   test('basic test', () => {

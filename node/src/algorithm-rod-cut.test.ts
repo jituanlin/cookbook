@@ -1,4 +1,7 @@
-import {calcMaxProfitBottomToTop, calcMaxProfitTopToBottom} from './rod-cut';
+import {
+  calcMaxProfitBottomToTop,
+  calcMaxProfitTopToBottom,
+} from './algorithm-rod-cut';
 
 const price = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30];
 
