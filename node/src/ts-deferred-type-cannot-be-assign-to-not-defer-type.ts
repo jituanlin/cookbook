@@ -10,6 +10,7 @@ type DeferredAny<T> = T extends any ? any : any;
  * the reason that is doesn't work:
  * deferred type cannot be assign to not-deferred type
  * */
+
 // export const f = <T>(t:T):DeferredAny<T> => t
 
 /**
@@ -19,7 +20,7 @@ type DeferredAny<T> = T extends any ? any : any;
  * */
 function deffer<T>(a: T): T extends any ? T : T;
 function deffer<T>(a: T): T {
-  return a;
+    return a;
 }
 
 /**

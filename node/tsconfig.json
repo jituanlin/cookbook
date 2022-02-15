@@ -7,7 +7,7 @@
     },
     "lib": ["es2015", "es2017", "dom", "es2019"],
     "target": "es2017",
-    "module": "commonjs",
+    "module": "esnext",
     "strict": true,
     "noImplicitAny": true,
     "experimentalDecorators": true,
@@ -25,7 +25,8 @@
     "skipDefaultLibCheck": true,
     "inlineSourceMap": true,
     "importHelpers": false,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "node"
   },
   "exclude": [
     "node_modules*",

@@ -17,8 +17,13 @@ import {Foldable1} from 'fp-ts/Foldable';
 import {option} from 'fp-ts';
 import {Kind} from 'fp-ts/HKT';
 import * as const_ from 'fp-ts/Const';
+import {MonoidSum} from "fp-ts/number";
+import * as assert from "assert";
 
 export const foldMap: Foldable1<'Option'>['foldMap'] =
-  <M>(M: Monoid<M>) =>
-  <A>(fa: Kind<'Option', A>, f: (a: A) => M) =>
-    option.traverse(const_.getApplicative(M))((a: A) => const_.make(f(a)))(fa);
+    <M>(M: Monoid<M>) =>
+        <A>(fa: Kind<'Option', A>, f: (a: A) => M) =>
+            option.traverse(const_.getApplicative(M))((a: A) => const_.make(f(a)))(fa);
+
+assert.deepStrictEqual(foldMap(MonoidSum)(option.some(1), (n: number) => n + 1), 2);
+assert.deepStrictEqual(foldMap(MonoidSum)(option.none, (n: number) => n + 1), 0);

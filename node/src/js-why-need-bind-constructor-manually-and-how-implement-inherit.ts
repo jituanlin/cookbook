@@ -12,14 +12,18 @@
  * modifying the original properties of the subclass.
  * It prevent potential *prototype pollution*.
  * */
-export function Parent() {}
-Parent.prototype.parentMethod = function parentMethod() {};
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export function Parent() {
+}
+
+Parent.prototype.parentMethod = function parentMethod() {
+};
 
 // log: [Function: Parent]
 console.log(Parent.prototype.constructor);
 
-function Child() {
-  Parent.call(this);
+function Child(this: any) {
+    Parent.call(this);
 }
 
 Child.prototype = Object.create(Parent.prototype);

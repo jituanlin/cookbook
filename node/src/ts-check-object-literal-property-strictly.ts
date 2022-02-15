@@ -1,5 +1,5 @@
 export type O = {
-  a: number;
+    a: number;
 };
 
 // type error: Object literal may only specify known properties
@@ -11,8 +11,8 @@ export type O = {
  */
 
 const obj1 = {
-  a: 1,
-  b: 2,
+    a: 1,
+    b: 2,
 };
 
 // OK without type error, since obj1 is not object literal

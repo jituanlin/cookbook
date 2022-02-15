@@ -12,17 +12,17 @@ const observableFromArray = fromArray([1, 2, 3]);
  1
  2
  3
-* */
+ * */
 observableFromArray.subscribe(console.log);
 observableFromArray.subscribe(console.log);
 
 const observableFromPromise = fromPromise(
-  new Promise(resolve => setTimeout(() => resolve('done'), 1000))
+    new Promise(resolve => setTimeout(() => resolve('done'), 1000))
 );
 
 /* log:
  by first subscribe test1
-* */
+ * */
 const eventEmitter = new EventEmitter();
 const observableFromEvent = fromEvent(eventEmitter, 'test');
 observableFromEvent.subscribe(x => console.log('by first subscribe', x));

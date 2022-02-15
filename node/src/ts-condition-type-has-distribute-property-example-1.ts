@@ -7,20 +7,20 @@
  * */
 
 type Boxed<T> = {
-  _V: T;
+    _V: T;
 };
 
 type Boxed2<T> = T extends any
-  ? {
-      _V: T;
+    ? {
+        _V: T;
     }
-  : never;
+    : never;
 
 type Boxed3<T> = number extends any
-  ? {
-      _V: T;
+    ? {
+        _V: T;
     }
-  : never;
+    : never;
 
 /**
  * inferred as Boxed {

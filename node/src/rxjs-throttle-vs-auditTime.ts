@@ -25,4 +25,4 @@ const S1 = () => source$.pipe(throttleTime(1000)).subscribe(console.log);
  * output: 0 11 21 31...
  * */
 const S2 = () =>
-  source$.pipe(throttle(() => timer(1000))).subscribe(console.log);
+    source$.pipe(throttle(() => timer(1000))).subscribe(console.log);

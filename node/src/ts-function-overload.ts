@@ -5,7 +5,7 @@ export function f(a: string): string;
  * so `any => any` is not f 's function type
  * */
 export function f(a: any): any {
-  return a;
+    return a;
 }
 
 // @ts-expect-error: TS2769: No overload matches this call.

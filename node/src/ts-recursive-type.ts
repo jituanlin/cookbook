@@ -4,6 +4,6 @@
 
 // work well after typescript3.7
 type Tree<T> = {
-  value: T;
-  children: Tree<T>;
+    value: T;
+    children: Tree<T>;
 };
